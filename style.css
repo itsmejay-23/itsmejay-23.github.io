@@ -84,6 +84,11 @@ body {
   color: #333;
 }
 
+.home-link {
+  display: inline-flex;
+  text-decoration: none;
+}
+
 .site-logo {
   height: 40px;
   width: auto;
