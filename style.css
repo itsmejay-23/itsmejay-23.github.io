@@ -78,7 +78,7 @@ body {
   align-items: center;
   gap: 10px;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #333;
@@ -101,4 +101,249 @@ body {
 
 .content {
   padding: 24px 32px;
+}
+
+/* Arjay first week layout */
+.arjay-layout {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.arjay-hero-column {
+  flex: 0 0 auto;
+}
+
+.arjay-main-column {
+  flex: 1;
+}
+
+.arjay-vertical-divider {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, #ffb347, transparent);
+  align-self: stretch;
+  opacity: 0.7;
+}
+
+.arjay-hero-card {
+  width: 190px; /* small rounded rectangle */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  background: #000;
+}
+
+.arjay-hero-image-wrapper {
+  position: relative;
+}
+
+.arjay-hero-image-wrapper img {
+  width: 100%;
+  height: 110px; /* reduced height */
+  display: block;
+  object-fit: cover;
+}
+
+.arjay-hero-image-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(255, 165, 0, 0.9), rgba(255, 165, 0, 0));
+}
+
+.arjay-hero-label {
+  position: absolute;
+  left: 12px;
+  bottom: 8px;
+  z-index: 1;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.arjay-title {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-family: "Helvetica", Arial, sans-serif;
+}
+
+.arjay-main-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.arjay-paragraph {
+  flex: 2;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  text-align: justify;
+}
+
+.arjay-gallery {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.arjay-gallery-row {
+  display: flex;
+  gap: 10px;
+}
+
+.arjay-thumb {
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+  padding: 2px; /* thin inner space for gradient line */
+  background: linear-gradient(135deg, orange, skyblue); /* orange–skyblue gradient line */
+}
+
+.arjay-thumb img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.arjay-thumb-more {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.arjay-thumb img {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.arjay-thumb:hover img {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* fading color overlay from below on hover */
+.arjay-thumb::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 55%;
+  background: linear-gradient(to top, rgba(255, 165, 0, 0.85), transparent); /* default orange */
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+  pointer-events: none;
+}
+
+/* alternate some thumbs to use sky blue overlay to feel more random */
+.arjay-gallery-row .arjay-thumb:nth-child(2)::before,
+.arjay-gallery-row:nth-child(2) .arjay-thumb:first-child::before {
+  background: linear-gradient(to top, rgba(135, 206, 250, 0.9), transparent); /* sky blue */
+}
+
+.arjay-thumb:hover::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.arjay-thumb-more::after {
+  content: attr(data-label);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.12), transparent),
+              linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.75));
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Modal overlay for full gallery */
+.arjay-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.arjay-modal-overlay.is-open {
+  display: flex;
+}
+
+.arjay-modal-content {
+  background: #fff;
+  max-width: 900px;
+  max-height: 90vh;
+  width: 90%;
+  border-radius: 12px;
+  padding: 16px 20px 20px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+.arjay-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.arjay-modal-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.arjay-modal-close {
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.arjay-modal-grid {
+  overflow: auto;
+}
+
+.arjay-modal-grid-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.arjay-modal-grid-inner img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Click-to-view preview inside modal */
+.arjay-modal-preview {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.arjay-modal-preview img {
+  max-width: 100%;
+  max-height: 45vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  object-fit: contain;
 }
