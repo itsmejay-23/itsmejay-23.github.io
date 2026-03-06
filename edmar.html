@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Edmar - IRO OJT'S BLOGSITE</title>
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,10 +36,128 @@
 
   <hr class="header-divider">
 
-  <main class="content">
-    <h1>Edmar</h1>
-    <p>This page is for Edmar. (Sample content)</p>
-    <p><a href="index.html">Back to Home</a></p>
+  <main class="content arjay-layout">
+    <!-- Left: small rounded-rectangle image with fading orange and label -->
+    <aside class="arjay-hero-column">
+      <div class="arjay-hero-card">
+        <div class="arjay-hero-image-wrapper">
+          <img src="images/edmar/first_week/D1.jpg" alt="First week highlight">
+          <div class="arjay-hero-label">First Week</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Vertical line separator -->
+    <div class="arjay-vertical-divider"></div>
+
+    <!-- Right: title, paragraph, and small gallery beside paragraph -->
+    <section class="arjay-main-column">
+      <h1 class="arjay-title">First Week - February 23-27, 2026</h1>
+
+      <div class="arjay-main-row">
+        <p class="arjay-paragraph">
+          This week, we helped move files to the new office and started fixing the names on the certificates. On Tuesday and Wednesday, we shifted to sending client satisfaction emails and drafting the messages for the ASEAN International Conference certificates. By Thursday, we continued sending draft emails and renamed the uploaded pictures in Google Drive for the ASEAN participants. Finally, on Friday, we finished naming the certificates and uploaded the NUVANCE Team images to the Drive.
+        </p>
+
+        <div class="arjay-gallery-layer">
+
+          <div class="arjay-thumb layer1">
+            <img src="images/edmar/first_week/D1-01.jpg" alt="First week detail">
+          </div>
+        
+          <div class="arjay-thumb layer2">
+            <img src="images/edmar/first_week/D4.jpg" alt="Day 4">
+          </div>
+        
+          <div class="arjay-thumb layer3">
+            <img src="images/edmar/first_week/D5.png" alt="Day 5">
+          </div>
+        
+          <button type="button"
+                  class="arjay-thumb arjay-thumb-more layer4"
+                  data-label="+5"
+                  id="open-first-week-modal">
+            <img src="images/edmar/first_week/D5-01.jpg" alt="More photos">
+          </button>       
+        </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- Modal overlay showing all first week images -->
+  <div class="arjay-modal-overlay" id="arjay-first-week-modal">
+    <div class="arjay-modal-content">
+      <div class="arjay-modal-header">
+        <div class="arjay-modal-title">First Week - Edmar's Full Gallery</div>
+        <button type="button" class="arjay-modal-close" id="close-first-week-modal">&times;</button>
+      </div>
+      <div class="arjay-modal-preview" id="arjay-modal-preview" aria-hidden="true"></div>
+
+      <div class="arjay-modal-grid">
+        <div class="arjay-modal-grid-inner">
+          <img src="images/edmar/first_week/D1.jpg" alt="First week photo D1">
+          <img src="images/edmar/first_week/D1-01.jpg" alt="First day detail">
+          <img src="images/edmar/first_week/D3-WFH-02.png" alt="Work from home 02">
+          <img src="images/edmar/first_week/D3-WFH-03.png" alt="Work from home 03">
+          <img src="images/edmar/first_week/D4.jpg" alt="Day 4">
+          <img src="images/edmar/first_week/D4-01.jpg" alt="Day 4 detail">
+          <img src="images/edmar/first_week/D5.png" alt="Day 5">
+          <img src="images/edmar/first_week/D5-01.jpg" alt="Day 5 detail">
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const openBtn = document.getElementById('open-first-week-modal');
+      const closeBtn = document.getElementById('close-first-week-modal');
+      const modal = document.getElementById('arjay-first-week-modal');
+      const preview = document.getElementById('arjay-modal-preview');
+      const grid = modal ? modal.querySelector('.arjay-modal-grid-inner') : null;
+
+      if (openBtn && modal && closeBtn) {
+        openBtn.addEventListener('click', function () {
+          modal.classList.add('is-open');
+        });
+
+        closeBtn.addEventListener('click', function () {
+          modal.classList.remove('is-open');
+          if (preview) {
+            preview.innerHTML = "";
+            preview.setAttribute('aria-hidden', 'true');
+          }
+        });
+
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) {
+            modal.classList.remove('is-open');
+            if (preview) {
+              preview.innerHTML = "";
+              preview.setAttribute('aria-hidden', 'true');
+            }
+          }
+        });
+      }
+
+      // make images in the modal clickable to view larger
+      if (grid && preview) {
+        grid.addEventListener('click', function (e) {
+          const img = e.target.closest('img');
+          if (!img) return;
+
+          const big = document.createElement('img');
+          big.src = img.src;
+          big.alt = img.alt || "";
+
+          preview.innerHTML = "";
+          preview.appendChild(big);
+          preview.setAttribute('aria-hidden', 'false');
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
