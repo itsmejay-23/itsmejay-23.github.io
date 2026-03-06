@@ -16,15 +16,15 @@
     </div>
 
     <div class="profiles">
-      <a href="ella.html" class="profile">
+      <a href="ella.html?p=ella" class="profile" data-profile="ella">
         <img src="images/ella.webp" alt="Ella Balderama" />
         <span>Ella Balderama</span>
       </a>
-      <a href="edmar.html" class="profile">
+      <a href="edmar.html?p=edmar" class="profile" data-profile="edmar">
         <img src="images/edmar.webp" alt="Edmar Dolosa" />
         <span>Edmar Dolosa</span>
       </a>
-      <a href="arjay.html" class="profile">
+      <a href="arjay.html?p=arjay" class="profile" data-profile="arjay">
         <img src="images/arjay.webp" alt="Arjay Lagunoy" />
         <span>Arjay Lagunoy</span>
       </a>
@@ -33,9 +33,283 @@
 
   <hr class="header-divider">
 
-  <main class="content">
-    <h1>Welcome to IRO OJT'S BLOGSITE</h1>
-    <p>Select a profile on the left side of the header to view each OJT's page.</p>
+  <main class="content index-content">
+    <h1 class="welcome-title">WELCOME TO OUR BLOGSITE!</h1>
+    
+    <section class="timelapse-section">
+      <h2 class="snapshots-title">Snapshots</h2>
+      <div class="snapshots-row">
+        <!-- Left: autoplaying timelapse video carousel -->
+        <div class="snapshots-left">
+          <div class="timelapse-carousel snapshots-panel">
+            <button class="timelapse-nav timelapse-prev" id="prev-video" aria-label="Previous video">&lt;</button>
+            <div class="timelapse-video-wrapper">
+              <video class="timelapse-video" id="timelapse-video" controls autoplay muted loop playsinline preload="metadata">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <button class="timelapse-nav timelapse-next" id="next-video" aria-label="Next video">&gt;</button>
+          </div>
+          <div class="timelapse-counter-wrapper">
+            <div class="timelapse-counter" id="video-counter"></div>
+          </div>
+        </div>
+
+        <!-- Right: random photo collage -->
+        <div class="snapshots-right">
+          <div class="random-overlap snapshots-panel" id="random-collage" aria-label="Random photos collage">
+            <div class="random-layer layer1"><img alt="Random snapshot 1"></div>
+            <div class="random-layer layer2"><img alt="Random snapshot 2"></div>
+            <div class="random-layer layer3"><img alt="Random snapshot 3"></div>
+            <button type="button"
+                    class="random-layer random-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-random-modal"
+                    aria-label="View more random photos">
+              <img alt="More random photos">
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Random images modal -->
+    <div class="arjay-modal-overlay" id="random-modal">
+      <div class="arjay-modal-content">
+        <div class="arjay-modal-header">
+          <div class="arjay-modal-title">Random Photos</div>
+          <button type="button" class="arjay-modal-close" id="close-random-modal">&times;</button>
+        </div>
+        <div class="arjay-modal-preview" id="random-modal-preview" aria-hidden="true"></div>
+
+        <div class="arjay-modal-grid">
+          <div class="arjay-modal-grid-inner" id="random-modal-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="org-structure">
+      <h2 class="org-title">Organizational Structure</h2>
+      <div class="org-list">
+        <div class="org-item">
+          <span class="org-role">Director</span>
+          <span class="org-name">- Prof. Evangeline D. Honrado</span>
+        </div>
+        <div class="org-item">
+          <span class="org-role">Administrative Aide IV</span>
+          <span class="org-name">- Ms. Maureen C. Mejillano</span>
+        </div>
+        <div class="org-item">
+          <span class="org-role">International Mobility and Support Services</span>
+          <span class="org-name">- Prof. Abigail Jo M. Abainza</span>
+        </div>
+        <div class="org-item">
+          <span class="org-name">Maria Teodora Lañosa - International Communications, and Marketing</span>
+        </div>
+        <div class="org-item">
+          <span class="org-name">Kent Dela Peña - Technical</span>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <script>
+    // Video carousel functionality
+    let timelapseVideos = [];
+    let currentVideoIndex = 0;
+    const videoElement = document.getElementById('timelapse-video');
+    const prevButton = document.getElementById('prev-video');
+    const nextButton = document.getElementById('next-video');
+    const counterElement = document.getElementById('video-counter');
+
+    // Load videos from JSON file
+    // To add new videos: put the file in images/timelapse/ then add its filename to videos.json
+    async function loadVideoList() {
+      try {
+        const response = await fetch('videos.json');
+        if (response.ok) {
+          const data = await response.json();
+          timelapseVideos = data.videos || [];
+        } else {
+          // Fallback: use default list if JSON file doesn't exist
+          timelapseVideos = [
+            '3rd_week_1.mp4',
+            '2nd_week_1.mp4',
+            'first_week_1.mp4',
+            'firstweek_2.mp4',
+            '2nd_week_2.mp4'
+          ];
+        }
+      } catch (e) {
+        // Fallback: use default list if JSON file can't be loaded
+        timelapseVideos = [
+          '3rd_week_1.mp4',
+          '2nd_week_1.mp4',
+          'first_week_1.mp4',
+          'firstweek_2.mp4',
+          '2nd_week_2.mp4'
+        ];
+      }
+      
+      // Initialize after loading video list
+      if (timelapseVideos.length > 0) {
+        loadVideo(0);
+      }
+    }
+
+    // Function to load a video by index
+    function loadVideo(index) {
+      if (timelapseVideos.length === 0) return;
+      
+      // Ensure index is within bounds (circular navigation)
+      if (index < 0) {
+        index = timelapseVideos.length - 1;
+      } else if (index >= timelapseVideos.length) {
+        index = 0;
+      }
+      
+      currentVideoIndex = index;
+      const videoPath = `images/timelapse/${timelapseVideos[index]}`;
+      videoElement.src = videoPath;
+      videoElement.load();
+      // Try to autoplay (works best when muted)
+      videoElement.muted = true;
+      const p = videoElement.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+      updateCounter();
+    }
+
+    // Update the video counter display
+    function updateCounter() {
+      if (timelapseVideos.length > 0) {
+        counterElement.textContent = `${currentVideoIndex + 1} / ${timelapseVideos.length}`;
+      } else {
+        counterElement.textContent = '';
+      }
+    }
+
+    // Navigation event listeners
+    prevButton.addEventListener('click', () => {
+      loadVideo(currentVideoIndex - 1);
+    });
+
+    nextButton.addEventListener('click', () => {
+      loadVideo(currentVideoIndex + 1);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        loadVideo(currentVideoIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        loadVideo(currentVideoIndex + 1);
+      }
+    });
+
+    // Initialize: load video list and start carousel
+    loadVideoList();
+
+    // --- Random collage ---
+    const collageEl = document.getElementById('random-collage');
+    const openRandomBtn = document.getElementById('open-random-modal');
+    const randomModal = document.getElementById('random-modal');
+    const closeRandomBtn = document.getElementById('close-random-modal');
+    const randomGrid = document.getElementById('random-modal-grid');
+    const randomPreview = document.getElementById('random-modal-preview');
+
+    async function loadRandomImages() {
+      if (!collageEl) return;
+
+      let images = [];
+      try {
+        const resp = await fetch('random.json');
+        if (resp.ok) {
+          const data = await resp.json();
+          images = data.images || [];
+        }
+      } catch (e) {
+        // ignore
+      }
+
+      // Fallback list (in case random.json can’t load)
+      if (!images || images.length === 0) {
+        images = [
+          'r1.jpg',
+          'r2.jpg',
+          'r3.jpg',
+          'r4.jpg',
+          'r5.jpg',
+          'r6.jpg',
+          'D4-sleepwell.jpg',
+          'D4- sleepwell.2.jpg'
+        ];
+      }
+
+      // Fill the overlapping stack (first 4)
+      const stackImgs = collageEl.querySelectorAll('img');
+      const stackSlots = Math.min(stackImgs.length, images.length);
+      for (let i = 0; i < stackImgs.length; i++) {
+        const img = stackImgs[i];
+        const name = images[i % images.length];
+        img.src = `images/random/${encodeURIComponent(name)}`;
+        img.alt = `Random snapshot ${i + 1}`;
+        img.loading = 'lazy';
+      }
+
+      // Fill modal grid with all images
+      if (randomGrid) {
+        randomGrid.innerHTML = '';
+        images.forEach((name, idx) => {
+          const img = document.createElement('img');
+          img.src = `images/random/${encodeURIComponent(name)}`;
+          img.alt = `Random photo ${idx + 1}`;
+          img.loading = 'lazy';
+          randomGrid.appendChild(img);
+        });
+      }
+    }
+
+    loadRandomImages();
+
+    // random modal open/close + click-to-preview
+    if (openRandomBtn && randomModal && closeRandomBtn) {
+      openRandomBtn.addEventListener('click', function () {
+        randomModal.classList.add('is-open');
+      });
+
+      closeRandomBtn.addEventListener('click', function () {
+        randomModal.classList.remove('is-open');
+        if (randomPreview) {
+          randomPreview.innerHTML = "";
+          randomPreview.setAttribute('aria-hidden', 'true');
+        }
+      });
+
+      randomModal.addEventListener('click', function (e) {
+        if (e.target === randomModal) {
+          randomModal.classList.remove('is-open');
+          if (randomPreview) {
+            randomPreview.innerHTML = "";
+            randomPreview.setAttribute('aria-hidden', 'true');
+          }
+        }
+      });
+    }
+
+    if (randomGrid && randomPreview) {
+      randomGrid.addEventListener('click', function (e) {
+        const img = e.target.closest('img');
+        if (!img) return;
+
+        const big = document.createElement('img');
+        big.src = img.src;
+        big.alt = img.alt || "";
+
+        randomPreview.innerHTML = "";
+        randomPreview.appendChild(big);
+        randomPreview.setAttribute('aria-hidden', 'false');
+      });
+    }
+  </script>
 </body>
 </html>
