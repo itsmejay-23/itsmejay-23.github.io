@@ -1,0 +1,3 @@
+# Serve arjay.html with dynamic PHP so the first_week gallery updates from folder contents
+RewriteEngine On
+RewriteRule ^arjay\.html$ arjay.php [L]
