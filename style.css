@@ -269,7 +269,7 @@ body {
               linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.75));
   color: #fff;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.7rem;
 }
 
 /* Modal overlay for full gallery */
@@ -383,7 +383,7 @@ body {
 .layer1{
   top:0;
   left:0;
-  transform:rotate(-6deg);
+  transform:rotate(-10deg);
   z-index:1;
 }
 
