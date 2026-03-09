@@ -605,6 +605,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  /* Hide the text boxes (name/date) under each video card */
+  display: none;
 }
 
 .snapshot-name {
