@@ -11,8 +11,8 @@
     <div class="site-title">
       <a href="index.html" class="home-link">
         <img src="images/iro_logo.webp" alt="IRO Logo" class="site-logo">
-        <span>IRO OJT'S BLOGSITE</span>
       </a>
+      <span>IRO OJT'S BLOGSITE</span>
     </div>
 
     <div class="profiles">
@@ -34,43 +34,27 @@
   <hr class="header-divider">
 
   <main class="content index-content">
+    <!-- Hidden video for autoplay -->
+    <div class="timelapse-autoplay" aria-hidden="true">
+      <video class="timelapse-video" id="timelapse-video" autoplay muted loop playsinline preload="metadata">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
     <h1 class="welcome-title">WELCOME TO OUR BLOGSITE!</h1>
     
-    <section class="timelapse-section">
-      <h2 class="snapshots-title">Snapshots</h2>
-      <div class="snapshots-row">
-        <!-- Left: autoplaying timelapse video carousel -->
-        <div class="snapshots-left">
-          <div class="timelapse-carousel snapshots-panel">
-            <button class="timelapse-nav timelapse-prev" id="prev-video" aria-label="Previous video">&lt;</button>
-            <div class="timelapse-video-wrapper">
-              <video class="timelapse-video" id="timelapse-video" controls autoplay muted loop playsinline preload="metadata">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <button class="timelapse-nav timelapse-next" id="next-video" aria-label="Next video">&gt;</button>
-          </div>
-          <div class="timelapse-counter-wrapper">
-            <div class="timelapse-counter" id="video-counter"></div>
-          </div>
-        </div>
+    <section class="landing-snapshots" aria-label="Snapshots">
+      <h2 class="snapshots-title">SNAPSHOTS</h2>
 
-        <!-- Right: random photo collage -->
-        <div class="snapshots-right">
-          <div class="random-overlap snapshots-panel" id="random-collage" aria-label="Random photos collage">
-            <div class="random-layer layer1"><img alt="Random snapshot 1"></div>
-            <div class="random-layer layer2"><img alt="Random snapshot 2"></div>
-            <div class="random-layer layer3"><img alt="Random snapshot 3"></div>
-            <button type="button"
-                    class="random-layer random-more layer4"
-                    data-label="VIEW MORE"
-                    id="open-random-modal"
-                    aria-label="View more random photos">
-              <img alt="More random photos">
-            </button>
-          </div>
+      <div class="snapshots-carousel-wrapper">
+        <div class="snapshots-carousel-track" id="snapshots-carousel-track">
+          <!-- Videos will be dynamically inserted here -->
         </div>
       </div>
+
+      <button type="button" class="snapshots-cta" id="open-random-modal" aria-label="View full gallery">
+        VIEW FULL GALLERY
+      </button>
     </section>
 
     <!-- Random images modal -->
@@ -114,13 +98,10 @@
   </main>
 
   <script>
-    // Video carousel functionality
+    // Video autoplay functionality (hidden video)
     let timelapseVideos = [];
     let currentVideoIndex = 0;
     const videoElement = document.getElementById('timelapse-video');
-    const prevButton = document.getElementById('prev-video');
-    const nextButton = document.getElementById('next-video');
-    const counterElement = document.getElementById('video-counter');
 
     // Load videos from JSON file
     // To add new videos: put the file in images/timelapse/ then add its filename to videos.json
@@ -152,14 +133,14 @@
       }
       
       // Initialize after loading video list
-      if (timelapseVideos.length > 0) {
+      if (timelapseVideos.length > 0 && videoElement) {
         loadVideo(0);
       }
     }
 
     // Function to load a video by index
     function loadVideo(index) {
-      if (timelapseVideos.length === 0) return;
+      if (!videoElement || timelapseVideos.length === 0) return;
       
       // Ensure index is within bounds (circular navigation)
       if (index < 0) {
@@ -176,41 +157,109 @@
       videoElement.muted = true;
       const p = videoElement.play();
       if (p && typeof p.catch === 'function') p.catch(() => {});
-      updateCounter();
-    }
-
-    // Update the video counter display
-    function updateCounter() {
-      if (timelapseVideos.length > 0) {
-        counterElement.textContent = `${currentVideoIndex + 1} / ${timelapseVideos.length}`;
-      } else {
-        counterElement.textContent = '';
-      }
-    }
-
-    // Navigation event listeners
-    prevButton.addEventListener('click', () => {
-      loadVideo(currentVideoIndex - 1);
-    });
-
-    nextButton.addEventListener('click', () => {
-      loadVideo(currentVideoIndex + 1);
-    });
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') {
-        loadVideo(currentVideoIndex - 1);
-      } else if (e.key === 'ArrowRight') {
+      
+      // Auto-advance to next video when current ends
+      videoElement.addEventListener('ended', () => {
         loadVideo(currentVideoIndex + 1);
-      }
-    });
+      }, { once: true });
+    }
 
-    // Initialize: load video list and start carousel
+    // Initialize: load video list and start autoplay
     loadVideoList();
 
-    // --- Random collage ---
-    const collageEl = document.getElementById('random-collage');
+    // --- Timelapse carousel ---
+    const carouselTrack = document.getElementById('snapshots-carousel-track');
+    let timelapseVideoFiles = [];
+
+    async function loadTimelapseVideos() {
+      try {
+        const response = await fetch('videos.json');
+        if (response.ok) {
+          const data = await response.json();
+          timelapseVideoFiles = data.videos || [];
+        } else {
+          // Fallback: use default list
+          timelapseVideoFiles = [
+            '3rd_week_1.mp4',
+            '2nd_week_1.mp4',
+            'first_week_1.mp4',
+            'firstweek_2.mp4',
+            '2nd_week_2.mp4'
+          ];
+        }
+      } catch (e) {
+        // Fallback: use default list
+        timelapseVideoFiles = [
+          '3rd_week_1.mp4',
+          '2nd_week_1.mp4',
+          'first_week_1.mp4',
+          'firstweek_2.mp4',
+          '2nd_week_2.mp4'
+        ];
+      }
+
+      if (carouselTrack && timelapseVideoFiles.length > 0) {
+        // Create video cards
+        const cards = [];
+        timelapseVideoFiles.forEach((videoFile, index) => {
+          const card = document.createElement('article');
+          card.className = 'snapshot-card';
+          card.setAttribute('role', 'listitem');
+          
+          const video = document.createElement('video');
+          video.src = `images/timelapse/${videoFile}`;
+          video.muted = true;
+          video.loop = true;
+          video.playsInline = true;
+          video.autoplay = true;
+          video.loading = 'lazy';
+          video.setAttribute('aria-label', `Timelapse video ${index + 1}`);
+          
+          // Try to play the video
+          video.addEventListener('loadeddata', () => {
+            video.play().catch(() => {
+              // Ignore autoplay errors
+            });
+          });
+          
+          const meta = document.createElement('div');
+          meta.className = 'snapshot-meta';
+          
+          const name = document.createElement('div');
+          name.className = 'snapshot-name';
+          name.textContent = videoFile.replace('.mp4', '').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+          
+          const date = document.createElement('div');
+          date.className = 'snapshot-date';
+          date.textContent = 'Timelapse';
+          
+          meta.appendChild(name);
+          meta.appendChild(date);
+          card.appendChild(video);
+          card.appendChild(meta);
+          
+          cards.push(card);
+        });
+        
+        // Append all cards, then duplicate the entire set for seamless loop
+        cards.forEach(card => carouselTrack.appendChild(card));
+        cards.forEach(card => {
+          const cardClone = card.cloneNode(true);
+          // Also clone video elements and ensure they play
+          const clonedVideo = cardClone.querySelector('video');
+          if (clonedVideo) {
+            clonedVideo.addEventListener('loadeddata', () => {
+              clonedVideo.play().catch(() => {});
+            });
+          }
+          carouselTrack.appendChild(cardClone);
+        });
+      }
+    }
+
+    loadTimelapseVideos();
+
+    // --- Random gallery modal ---
     const openRandomBtn = document.getElementById('open-random-modal');
     const randomModal = document.getElementById('random-modal');
     const closeRandomBtn = document.getElementById('close-random-modal');
@@ -218,8 +267,6 @@
     const randomPreview = document.getElementById('random-modal-preview');
 
     async function loadRandomImages() {
-      if (!collageEl) return;
-
       let images = [];
       try {
         const resp = await fetch('random.json');
@@ -231,7 +278,7 @@
         // ignore
       }
 
-      // Fallback list (in case random.json can’t load)
+      // Fallback list (in case random.json can't load)
       if (!images || images.length === 0) {
         images = [
           'r1.jpg',
@@ -243,17 +290,6 @@
           'D4-sleepwell.jpg',
           'D4- sleepwell.2.jpg'
         ];
-      }
-
-      // Fill the overlapping stack (first 4)
-      const stackImgs = collageEl.querySelectorAll('img');
-      const stackSlots = Math.min(stackImgs.length, images.length);
-      for (let i = 0; i < stackImgs.length; i++) {
-        const img = stackImgs[i];
-        const name = images[i % images.length];
-        img.src = `images/random/${encodeURIComponent(name)}`;
-        img.alt = `Random snapshot ${i + 1}`;
-        img.loading = 'lazy';
       }
 
       // Fill modal grid with all images
