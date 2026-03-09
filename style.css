@@ -223,6 +223,7 @@ body {
   font-size: 0.95rem;
   text-align: justify;
   max-width: 650px;
+  color: #00001C;
 }
 
 .arjay-gallery {
@@ -622,8 +623,8 @@ body {
 /* VIEW FULL GALLERY button */
 .snapshots-cta {
   padding: 14px 32px;
-  background: linear-gradient(135deg, #87ceeb 0%, #fb923c 100%);
-  color: #ffffff;
+  background: #87ceeb 0%;
+  color: #050505;
   border: none;
   border-radius: 8px;
   font-size: 0.9rem;
