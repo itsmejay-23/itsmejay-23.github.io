@@ -858,11 +858,53 @@ body {
   display: inline-block;
 }
 
-.org-structure {
+.org-area {
   margin-top: 80px;
   padding-top: 40px;
   border-top: 2px solid var(--midnight-border);
   width: 100%;
+}
+
+.org-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.org-panel {
+  background: var(--midnight-surface);
+  border: 1px solid var(--midnight-border);
+  border-radius: 14px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.org-panel .org-title {
+  margin-bottom: 18px;
+}
+
+.org-panel .org-list {
+  max-width: none;
+}
+
+.interns-title {
+  text-align: center;
+}
+
+.interns-list .org-item {
+  text-align: left;
+}
+
+.interns-structure .org-name {
+  color: var(--midnight-text);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .org-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .org-title {
@@ -884,7 +926,8 @@ body {
 
 .org-item {
   padding: 12px 20px;
-  background: var(--midnight-surface);
+  background: var(--midnight-surface-alt);
+  border: 1px solid var(--midnight-border);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   font-size: 1rem;
