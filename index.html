@@ -266,6 +266,56 @@
     const randomGrid = document.getElementById('random-modal-grid');
     const randomPreview = document.getElementById('random-modal-preview');
 
+    // Fallback list for when `fetch('random.json')` is blocked (common on file://).
+    // Paths are relative to the `/images` folder.
+    const FALLBACK_RANDOM_IMAGES = [
+      "arjay/first_week/D1-01.jpg",
+      "arjay/first_week/D1-from-mamabby.jpg",
+      "arjay/first_week/D1-vehicle.jpg",
+      "arjay/first_week/D1.jpg",
+      "arjay/first_week/D3-ss.1.png",
+      "arjay/first_week/D3-ss.2.png",
+      "arjay/first_week/D3-ss.3.png",
+      "arjay/first_week/D3-ss.4.png",
+      "arjay/first_week/D3-WFH-04.png",
+      "arjay/first_week/D3-WFH-06.png",
+      "arjay/first_week/D3-WFH.jpg",
+      "arjay/first_week/D4-01.jpg",
+      "arjay/first_week/D4.jpg",
+      "arjay/first_week/D5-drandreas.png",
+      "arjay/first_week/D5-drive.png",
+      "arjay/first_week/D5-drtapas.png",
+      "arjay/first_week/D5-fri-1.jpg",
+      "arjay/first_week/D5-fri-2.jpg",
+      "arjay/first_week/D5-fri-3.jpg",
+      "arjay/first_week/D5-pc.png",
+      "edmar/first_week/D1-01.jpg",
+      "edmar/first_week/D1.jpg",
+      "edmar/first_week/D3-WFH-02.png",
+      "edmar/first_week/D3-WFH-03.png",
+      "edmar/first_week/D4-01.jpg",
+      "edmar/first_week/D4.jpg",
+      "edmar/first_week/D5-01.jpg",
+      "edmar/first_week/D5.png",
+      "ella/first_week/D1-01.jpg",
+      "ella/first_week/D1.jpg",
+      "ella/first_week/D1.png",
+      "ella/first_week/D1_01.png",
+      "ella/first_week/D1_02.png",
+      "ella/first_week/D1_03.png",
+      "ella/first_week/D3-WFH-05.png",
+      "ella/first_week/D4-01.jpg",
+      "ella/first_week/D4.jpg",
+      "random/D4- sleepwell.2.jpg",
+      "random/D4-sleepwell.jpg",
+      "random/r1.jpg",
+      "random/r2.jpg",
+      "random/r3.jpg",
+      "random/r4.jpg",
+      "random/r5.jpg",
+      "random/r6.jpg"
+    ];
+
     async function loadRandomImages() {
       let images = [];
       try {
@@ -278,18 +328,9 @@
         // ignore
       }
 
-      // Fallback list (in case random.json can't load)
+      // If random.json is missing/blocked/empty, fall back to the known list above.
       if (!images || images.length === 0) {
-        images = [
-          'r1.jpg',
-          'r2.jpg',
-          'r3.jpg',
-          'r4.jpg',
-          'r5.jpg',
-          'r6.jpg',
-          'D4-sleepwell.jpg',
-          'D4- sleepwell.2.jpg'
-        ];
+        images = FALLBACK_RANDOM_IMAGES.slice();
       }
 
       // Fill modal grid with all images
@@ -297,7 +338,8 @@
         randomGrid.innerHTML = '';
         images.forEach((name, idx) => {
           const img = document.createElement('img');
-          img.src = `images/random/${encodeURIComponent(name)}`;
+           // 'name' is a path relative to /images (may include subfolders + spaces)
+           img.src = `images/${encodeURI(name)}`;
           img.alt = `Random photo ${idx + 1}`;
           img.loading = 'lazy';
           randomGrid.appendChild(img);
