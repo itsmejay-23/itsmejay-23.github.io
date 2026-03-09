@@ -30,6 +30,8 @@ body {
   align-items: center;
   padding: 12px 32px;
   background: var(--midnight-surface);
+  flex-wrap: wrap;
+  gap: 10px 18px;
 }
 
 .profiles {
@@ -138,9 +140,41 @@ body {
   text-decoration: none;
 }
 
+.site-logos {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.partner-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
 .site-logo {
   height: 40px;
   width: auto;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding: 10px 16px;
+  }
+  .site-title {
+    font-size: 1.05rem;
+  }
+  .site-logos {
+    gap: 8px;
+  }
+  .partner-logo {
+    height: 32px;
+  }
+  .site-logo {
+    height: 32px;
+  }
 }
 
 .header-divider {
