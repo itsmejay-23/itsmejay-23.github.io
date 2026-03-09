@@ -131,7 +131,10 @@ body {
 
 .home-link {
   display: inline-flex;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
+  color: inherit;
 }
 
 .site-logo {
