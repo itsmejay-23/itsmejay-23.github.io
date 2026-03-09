@@ -122,6 +122,17 @@ body {
   color: var(--midnight-text);
 }
 
+/* Homepage-only header label (used only on index.html) */
+.profiles-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--midnight-text-muted);
+  margin-right: 6px;
+  white-space: nowrap;
+}
+
 .home-link {
   display: inline-flex;
   text-decoration: none;
@@ -848,7 +859,7 @@ body {
 }
 
 .org-structure {
-  margin-top: 60px;
+  margin-top: 80px;
   padding-top: 40px;
   border-top: 2px solid var(--midnight-border);
   width: 100%;
