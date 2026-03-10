@@ -42,49 +42,90 @@
   <hr class="header-divider">
 
   <main class="content arjay-layout">
-    <!-- Left: small rounded-rectangle image with fading orange and label -->
+    <!-- Left: stacked hero cards -->
     <aside class="arjay-hero-column">
       <div class="arjay-hero-card">
         <div class="arjay-hero-image-wrapper">
           <img src="images/edmar/first_week/D4.jpg" alt="First week highlight">
-          <div class="arjay-hero-label">First Week</div>
+          <button type="button" class="arjay-hero-label" aria-label="First Week">First Week</button>
+        </div>
+      </div>
+
+      <div class="arjay-hero-card">
+        <div class="arjay-hero-image-wrapper">
+          <img src="images/edmar/second_week/D1.jpg" alt="Second week highlight">
+          <button type="button" class="arjay-hero-label" aria-label="Second Week">Second Week</button>
         </div>
       </div>
     </aside>
 
-    <!-- Vertical line separator -->
+    <!-- Vertical line separator (continuous) -->
     <div class="arjay-vertical-divider"></div>
 
-    <!-- Right: title, paragraph, and small gallery beside paragraph -->
+    <!-- Right: both weeks stacked -->
     <section class="arjay-main-column">
-      <h1 class="arjay-title">First Week - February 23-27, 2026</h1>
+      <div class="arjay-week-block">
+        <h1 class="arjay-title">First Week - February 23-27, 2026</h1>
 
-      <div class="arjay-main-row">
-        <p class="arjay-paragraph">
-          This week, we helped move files to the new office and started fixing the names on the certificates. On Tuesday and Wednesday, we shifted to sending client satisfaction emails and drafting the messages for the ASEAN International Conference certificates. By Thursday, we continued sending draft emails and renamed the uploaded pictures in Google Drive for the ASEAN participants. Finally, on Friday, we finished naming the certificates and uploaded the NUVANCE Team images to the Drive.
-        </p>
+        <div class="arjay-main-row">
+          <p class="arjay-paragraph">
+            This week, we helped move files to the new office and started fixing the names on the certificates. On Tuesday and Wednesday, we shifted to sending client satisfaction emails and drafting the messages for the ASEAN International Conference certificates. By Thursday, we continued sending draft emails and renamed the uploaded pictures in Google Drive for the ASEAN participants. Finally, on Friday, we finished naming the certificates and uploaded the NUVANCE Team images to the Drive.
+          </p>
 
-        <div class="arjay-gallery-layer">
+          <div class="arjay-gallery-layer">
 
-          <div class="arjay-thumb layer1">
-            <img src="images/edmar/first_week/D1-01.jpg" alt="First week detail">
+            <div class="arjay-thumb layer1">
+              <img src="images/edmar/first_week/D1-01.jpg" alt="First week detail">
+            </div>
+          
+            <div class="arjay-thumb layer2">
+              <img src="images/edmar/first_week/D4.jpg" alt="Day 4">
+            </div>
+          
+            <div class="arjay-thumb layer3">
+              <img src="images/edmar/first_week/D5.png" alt="Day 5">
+            </div>
+          
+            <button type="button"
+                    class="arjay-thumb arjay-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-first-week-modal">
+              <img src="images/edmar/first_week/D5-01.jpg" alt="More photos">
+            </button>       
           </div>
-        
-          <div class="arjay-thumb layer2">
-            <img src="images/edmar/first_week/D4.jpg" alt="Day 4">
           </div>
-        
-          <div class="arjay-thumb layer3">
-            <img src="images/edmar/first_week/D5.png" alt="Day 5">
-          </div>
-        
-          <button type="button"
-                  class="arjay-thumb arjay-thumb-more layer4"
-                  data-label="VIEW MORE"
-                  id="open-first-week-modal">
-            <img src="images/edmar/first_week/D5-01.jpg" alt="More photos">
-          </button>       
         </div>
+      </div>
+
+      <div class="arjay-week-block arjay-week-gallery-left">
+        <h1 class="arjay-title">Second Week - March 02-06, 2026</h1>
+
+        <div class="arjay-main-row">
+          <div class="arjay-gallery-layer">
+            <div class="arjay-thumb layer1">
+              <img src="images/edmar/second_week/D2.png" alt="Second week detail D2">
+            </div>
+          
+            <div class="arjay-thumb layer2">
+              <img src="images/edmar/second_week/D4.png" alt="Second week D4">
+            </div>
+          
+            <div class="arjay-thumb layer3">
+              <img src="images/edmar/second_week/D4-01.png" alt="Second week D4-01">
+            </div>
+          
+            <button type="button"
+                    class="arjay-thumb arjay-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-second-week-modal">
+              <img src="images/edmar/second_week/D4-02.png" alt="More second week photos">
+            </button>       
+          </div>
+
+          <p class="arjay-paragraph">
+            Several activities were completed in relation to the preparation of an infographic. An infographics meeting was first conducted to discuss the design, layout, and content of the infographic. After the meeting, the drafting and designing of the infographic started and continued in the following days to further improve its layout and presentation. During this time, a paper was also delivered to the OP for signature and later submitted to the OSAS, including the Dean and Admin Offices, for the required signatures. A conference room meeting was also attended to discuss updates and other related matters. The drafted infographic was later checked and reviewed with Ma'am Abby to ensure that the design and information were accurate. After the review, additional information was gathered to be included in the infographic to complete the content.
+          </p>
+          </div>
         </div>
       </div>
     </section>
@@ -97,7 +138,7 @@
         <div class="arjay-modal-title">First Week - Edmar's Full Gallery</div>
         <button type="button" class="arjay-modal-close" id="close-first-week-modal">&times;</button>
       </div>
-      <div class="arjay-modal-preview" id="arjay-modal-preview" aria-hidden="true"></div>
+      <div class="arjay-modal-preview" id="arjay-modal-preview-first" aria-hidden="true"></div>
 
       <div class="arjay-modal-grid">
         <div class="arjay-modal-grid-inner">
@@ -115,53 +156,83 @@
     </div>
   </div>
 
+  <!-- (Second week section moved into the main layout above to keep the vertical divider continuous) -->
+
+  <!-- Modal overlay showing all second week images -->
+  <div class="arjay-modal-overlay" id="arjay-second-week-modal">
+    <div class="arjay-modal-content">
+      <div class="arjay-modal-header">
+        <div class="arjay-modal-title">Second Week - Edmar's Full Gallery</div>
+        <button type="button" class="arjay-modal-close" id="close-second-week-modal">&times;</button>
+      </div>
+      <div class="arjay-modal-preview" id="arjay-modal-preview-second" aria-hidden="true"></div>
+
+      <div class="arjay-modal-grid">
+        <div class="arjay-modal-grid-inner">
+          <img src="images/edmar/second_week/D1.jpg" alt="Second week photo D1">
+          <img src="images/edmar/second_week/D2.png" alt="Second week photo D2">
+          <img src="images/edmar/second_week/D4.png" alt="Second week photo D4">
+          <img src="images/edmar/second_week/D4-01.png" alt="Second week photo D4-01">
+          <img src="images/edmar/second_week/D4-02.png" alt="Second week photo D4-02">
+          <img src="images/edmar/second_week/D4-03.png" alt="Second week photo D4-03">
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
-      const openBtn = document.getElementById('open-first-week-modal');
-      const closeBtn = document.getElementById('close-first-week-modal');
-      const modal = document.getElementById('arjay-first-week-modal');
-      const preview = document.getElementById('arjay-modal-preview');
-      const grid = modal ? modal.querySelector('.arjay-modal-grid-inner') : null;
+      function setupModal(openId, modalId, closeId, previewId) {
+        const openBtn = document.getElementById(openId);
+        const closeBtn = document.getElementById(closeId);
+        const modal = document.getElementById(modalId);
+        const preview = document.getElementById(previewId);
+        const grid = modal ? modal.querySelector('.arjay-modal-grid-inner') : null;
 
-      if (openBtn && modal && closeBtn) {
-        openBtn.addEventListener('click', function () {
-          modal.classList.add('is-open');
-        });
+        if (openBtn && modal && closeBtn) {
+          openBtn.addEventListener('click', function () {
+            modal.classList.add('is-open');
+          });
 
-        closeBtn.addEventListener('click', function () {
-          modal.classList.remove('is-open');
-          if (preview) {
-            preview.innerHTML = "";
-            preview.setAttribute('aria-hidden', 'true');
-          }
-        });
-
-        modal.addEventListener('click', function (e) {
-          if (e.target === modal) {
+          closeBtn.addEventListener('click', function () {
             modal.classList.remove('is-open');
             if (preview) {
               preview.innerHTML = "";
               preview.setAttribute('aria-hidden', 'true');
             }
-          }
-        });
+          });
+
+          modal.addEventListener('click', function (e) {
+            if (e.target === modal) {
+              modal.classList.remove('is-open');
+              if (preview) {
+                preview.innerHTML = "";
+                preview.setAttribute('aria-hidden', 'true');
+              }
+            }
+          });
+        }
+
+        // make images in the modal clickable to view larger
+        if (grid && preview) {
+          grid.addEventListener('click', function (e) {
+            const img = e.target.closest('img');
+            if (!img) return;
+
+            const big = document.createElement('img');
+            big.src = img.src;
+            big.alt = img.alt || "";
+
+            preview.innerHTML = "";
+            preview.appendChild(big);
+            preview.setAttribute('aria-hidden', 'false');
+          });
+        }
       }
 
-      // make images in the modal clickable to view larger
-      if (grid && preview) {
-        grid.addEventListener('click', function (e) {
-          const img = e.target.closest('img');
-          if (!img) return;
-
-          const big = document.createElement('img');
-          big.src = img.src;
-          big.alt = img.alt || "";
-
-          preview.innerHTML = "";
-          preview.appendChild(big);
-          preview.setAttribute('aria-hidden', 'false');
-        });
-      }
+      setupModal('open-first-week-modal', 'arjay-first-week-modal', 'close-first-week-modal', 'arjay-modal-preview-first');
+      setupModal('open-second-week-modal', 'arjay-second-week-modal', 'close-second-week-modal', 'arjay-modal-preview-second');
     })();
   </script>
 </body>

@@ -201,6 +201,25 @@ body {
   flex: 1;
 }
 
+.arjay-week-block {
+  margin-bottom: 28px;
+}
+
+.arjay-week-block:last-child {
+  margin-bottom: 0;
+}
+
+/* If the mini-gallery is on the left in the row, shift the title to sit above the text column */
+.arjay-week-gallery-left > .arjay-title {
+  margin-left: 300px; /* 220px gallery width + ~80px gap */
+}
+
+@media (max-width: 900px) {
+  .arjay-week-gallery-left > .arjay-title {
+    margin-left: 0;
+  }
+}
+
 .arjay-vertical-divider {
   width: 1px;
   background: linear-gradient(to bottom, transparent, #ffb347, transparent);
@@ -214,6 +233,11 @@ body {
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
   background: #000;
+  margin-bottom: 18px;
+}
+
+.arjay-hero-card:last-child {
+  margin-bottom: 0;
 }
 
 .arjay-hero-image-wrapper {
@@ -247,6 +271,11 @@ body {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #fff;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .arjay-title {
