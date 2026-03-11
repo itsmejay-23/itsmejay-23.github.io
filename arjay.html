@@ -43,56 +43,97 @@
   <hr class="header-divider">
 
   <main class="content blog-layout">
-    <!-- Left: small rounded-rectangle image with fading orange and label -->
+    <!-- Left: stacked hero cards -->
     <aside class="blog-hero-column">
       <div class="blog-hero-card">
         <div class="blog-hero-image-wrapper">
           <img src="images/arjay/first_week/D5-fri-3.jpg" alt="First week highlight">
-          <div class="blog-hero-label">First Week</div>
+          <button type="button" class="blog-hero-label" aria-label="First Week">First Week</button>
+        </div>
+      </div>
+
+      <div class="blog-hero-card">
+        <div class="blog-hero-image-wrapper">
+          <img src="images/arjay/second_week/D4-3.jpeg" alt="Second week highlight">
+          <button type="button" class="blog-hero-label" aria-label="Second Week">Second Week</button>
         </div>
       </div>
     </aside>
 
-    <!-- Vertical line separator -->
+    <!-- Vertical line separator (continuous) -->
     <div class="blog-vertical-divider"></div>
 
-    <!-- Right: title, paragraph, and small gallery beside paragraph -->
+    <!-- Right: both weeks stacked -->
     <section class="blog-main-column">
-      <h1 class="blog-title">First Week - February 23-27, 2026</h1>
+      <div class="blog-week-block">
+        <h1 class="blog-title">First Week - February 23-27, 2026</h1>
 
-      <div class="blog-main-row">
-        <p class="blog-paragraph">
-          During the week, I assisted with several administrative and documentation tasks in the office.
-          I helped transfer office materials and worked on editing and organizing certificate names to ensure
-          accuracy and consistency. I also assisted in sending client satisfaction emails and continued
-          communicating with clients regarding feedback. Part of my task was drafting and refining the email
-          content that would accompany the certificates. Additionally, I organized digital files by renaming
-          certificates and uploading related images to Google Drive, making sure that the documents were properly
-          labeled and easy to access. These activities helped improve the organization of files and supported the
-          office’s communication with clients.
-        </p>
+        <div class="blog-main-row">
+          <p class="blog-paragraph">
+            During the week, I assisted with several administrative and documentation tasks in the office.
+            I helped transfer office materials and worked on editing and organizing certificate names to ensure
+            accuracy and consistency. I also assisted in sending client satisfaction emails and continued
+            communicating with clients regarding feedback. Part of my task was drafting and refining the email
+            content that would accompany the certificates. Additionally, I organized digital files by renaming
+            certificates and uploading related images to Google Drive, making sure that the documents were properly
+            labeled and easy to access. These activities helped improve the organization of files and supported the
+            office’s communication with clients.
+          </p>
 
-        <div class="blog-gallery-layer">
+          <div class="blog-gallery-layer">
 
-          <div class="blog-thumb layer1">
-            <img src="images/arjay/first_week/D1-vehicle.jpg" alt="First week vehicle">
+            <div class="blog-thumb layer1">
+              <img src="images/arjay/first_week/D1-vehicle.jpg" alt="First week vehicle">
+            </div>
+          
+            <div class="blog-thumb layer2">
+              <img src="images/arjay/first_week/D3-WFH.jpg" alt="Work from home">
+            </div>
+          
+            <div class="blog-thumb layer3">
+              <img src="images/arjay/first_week/D5-fri-1.jpg" alt="Friday photo 1">
+            </div>
+          
+            <button type="button"
+                    class="blog-thumb blog-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-first-week-modal">
+              <img src="images/arjay/first_week/D5-drandreas.png" alt="More photos">
+            </button>       
           </div>
-        
-          <div class="blog-thumb layer2">
-            <img src="images/arjay/first_week/D3-WFH.jpg" alt="Work from home">
           </div>
-        
-          <div class="blog-thumb layer3">
-            <img src="images/arjay/first_week/D5-fri-1.jpg" alt="Friday photo 1">
-          </div>
-        
-          <button type="button"
-                  class="blog-thumb blog-thumb-more layer4"
-                  data-label="VIEW MORE"
-                  id="open-first-week-modal">
-            <img src="images/arjay/first_week/D5-drandreas.png" alt="More photos">
-          </button>       
         </div>
+      </div>
+
+      <div class="blog-week-block blog-week-gallery-left">
+        <h1 class="blog-title">Second Week - March 02-06, 2026</h1>
+
+        <div class="blog-main-row">
+          <div class="blog-gallery-layer">
+            <div class="blog-thumb layer1">
+              <img src="images/arjay/second_week/D2.png" alt="Second week detail D2">
+            </div>
+          
+            <div class="blog-thumb layer2">
+              <img src="images/arjay/second_week/D5.png" alt="Second week D5">
+            </div>
+          
+            <div class="blog-thumb layer3">
+              <img src="images/arjay/second_week/D4-3.jpeg" alt="Second week D4-3">
+            </div>
+          
+            <button type="button"
+                    class="blog-thumb blog-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-second-week-modal">
+              <img src="images/arjay/second_week/D4-5.jpeg" alt="More second week photos">
+            </button>       
+          </div>
+
+          <p class="blog-paragraph">
+            This week involved meetings and progress related to the infographic project. An initial meeting was conducted to discuss the infographic design and planning. Work then began on drafting the infographic layout and visual elements. During the week, important documents were also delivered to the OP and later to the OSAS office, including the Dean and administrative offices, for signatures. The infographic design continued to be developed and refined, alongside participation in a conference room meeting for further discussion and coordination. Toward the latter part of the week, the infographic draft was reviewed with Ma'am Abby for feedback and improvements. Additional time was also spent gathering the necessary information and content that will be included in the final infographic.
+          </p>
+          </div>
         </div>
       </div>
     </section>
@@ -105,7 +146,7 @@
         <div class="blog-modal-title">First Week - Arjay's Full Gallery</div>
         <button type="button" class="blog-modal-close" id="close-first-week-modal">&times;</button>
       </div>
-      <div class="blog-modal-preview" id="blog-modal-preview" aria-hidden="true"></div>
+      <div class="blog-modal-preview" id="blog-modal-preview-first" aria-hidden="true"></div>
 
       <div class="blog-modal-grid">
         <div class="blog-modal-grid-inner">
@@ -130,6 +171,29 @@
           <img src="images/arjay/first_week/D5-pc.png" alt="PC setup">
           <img src="images/arjay/first_week/D5-drive.png" alt="Google Drive organization">
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal overlay showing all second week images -->
+  <div class="blog-modal-overlay" id="blog-second-week-modal">
+    <div class="blog-modal-content">
+      <div class="blog-modal-header">
+        <div class="blog-modal-title">Second Week - Arjay's Full Gallery</div>
+        <button type="button" class="blog-modal-close" id="close-second-week-modal">&times;</button>
+      </div>
+      <div class="blog-modal-preview" id="blog-modal-preview-second" aria-hidden="true"></div>
+
+      <div class="blog-modal-grid">
+        <div class="blog-modal-grid-inner">
+          <img src="images/arjay/second_week/D1.jpg" alt="Second week photo D1">
+          <img src="images/arjay/second_week/D2.png" alt="Second week photo D2">
+          <img src="images/arjay/second_week/D4-3.jpeg" alt="Second week photo D4-3">
+          <img src="images/arjay/second_week/D4-5.jpeg" alt="Second week photo D4-5">
+          <img src="images/arjay/second_week/D4-6.jpeg" alt="Second week photo D4-6">
+          <img src="images/arjay/second_week/D4-9.jpeg" alt="Second week photo D4-9">
+          <img src="images/arjay/second_week/D4-11.jpeg" alt="Second week photo D4-11">
+          <img src="images/arjay/second_week/D5.png" alt="Second week photo D5">
         </div>
       </div>
     </div>
@@ -137,51 +201,56 @@
 
   <script>
     (function () {
-      const openBtn = document.getElementById('open-first-week-modal');
-      const closeBtn = document.getElementById('close-first-week-modal');
-      const modal = document.getElementById('blog-first-week-modal');
-      const preview = document.getElementById('blog-modal-preview');
-      const grid = modal ? modal.querySelector('.blog-modal-grid-inner') : null;
+      function setupModal(openId, modalId, closeId, previewId) {
+        const openBtn = document.getElementById(openId);
+        const closeBtn = document.getElementById(closeId);
+        const modal = document.getElementById(modalId);
+        const preview = document.getElementById(previewId);
+        const grid = modal ? modal.querySelector('.blog-modal-grid-inner') : null;
 
-      if (openBtn && modal && closeBtn) {
-        openBtn.addEventListener('click', function () {
-          modal.classList.add('is-open');
-        });
+        if (openBtn && modal && closeBtn) {
+          openBtn.addEventListener('click', function () {
+            modal.classList.add('is-open');
+          });
 
-        closeBtn.addEventListener('click', function () {
-          modal.classList.remove('is-open');
-          if (preview) {
-            preview.innerHTML = "";
-            preview.setAttribute('aria-hidden', 'true');
-          }
-        });
-
-        modal.addEventListener('click', function (e) {
-          if (e.target === modal) {
+          closeBtn.addEventListener('click', function () {
             modal.classList.remove('is-open');
             if (preview) {
               preview.innerHTML = "";
               preview.setAttribute('aria-hidden', 'true');
             }
-          }
-        });
+          });
+
+          modal.addEventListener('click', function (e) {
+            if (e.target === modal) {
+              modal.classList.remove('is-open');
+              if (preview) {
+                preview.innerHTML = "";
+                preview.setAttribute('aria-hidden', 'true');
+              }
+            }
+          });
+        }
+
+        // make images in the modal clickable to view larger
+        if (grid && preview) {
+          grid.addEventListener('click', function (e) {
+            const img = e.target.closest('img');
+            if (!img) return;
+
+            const big = document.createElement('img');
+            big.src = img.src;
+            big.alt = img.alt || "";
+
+            preview.innerHTML = "";
+            preview.appendChild(big);
+            preview.setAttribute('aria-hidden', 'false');
+          });
+        }
       }
 
-      // make images in the modal clickable to view larger
-      if (grid && preview) {
-        grid.addEventListener('click', function (e) {
-          const img = e.target.closest('img');
-          if (!img) return;
-
-          const big = document.createElement('img');
-          big.src = img.src;
-          big.alt = img.alt || "";
-
-          preview.innerHTML = "";
-          preview.appendChild(big);
-          preview.setAttribute('aria-hidden', 'false');
-        });
-      }
+      setupModal('open-first-week-modal', 'blog-first-week-modal', 'close-first-week-modal', 'blog-modal-preview-first');
+      setupModal('open-second-week-modal', 'blog-second-week-modal', 'close-second-week-modal', 'blog-modal-preview-second');
     })();
   </script>
 </body>
