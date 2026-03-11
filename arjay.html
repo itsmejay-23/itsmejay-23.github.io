@@ -42,26 +42,26 @@
 
   <hr class="header-divider">
 
-  <main class="content arjay-layout">
+  <main class="content blog-layout">
     <!-- Left: small rounded-rectangle image with fading orange and label -->
-    <aside class="arjay-hero-column">
-      <div class="arjay-hero-card">
-        <div class="arjay-hero-image-wrapper">
+    <aside class="blog-hero-column">
+      <div class="blog-hero-card">
+        <div class="blog-hero-image-wrapper">
           <img src="images/arjay/first_week/D5-fri-3.jpg" alt="First week highlight">
-          <div class="arjay-hero-label">First Week</div>
+          <div class="blog-hero-label">First Week</div>
         </div>
       </div>
     </aside>
 
     <!-- Vertical line separator -->
-    <div class="arjay-vertical-divider"></div>
+    <div class="blog-vertical-divider"></div>
 
     <!-- Right: title, paragraph, and small gallery beside paragraph -->
-    <section class="arjay-main-column">
-      <h1 class="arjay-title">First Week - February 23-27, 2026</h1>
+    <section class="blog-main-column">
+      <h1 class="blog-title">First Week - February 23-27, 2026</h1>
 
-      <div class="arjay-main-row">
-        <p class="arjay-paragraph">
+      <div class="blog-main-row">
+        <p class="blog-paragraph">
           During the week, I assisted with several administrative and documentation tasks in the office.
           I helped transfer office materials and worked on editing and organizing certificate names to ensure
           accuracy and consistency. I also assisted in sending client satisfaction emails and continued
@@ -72,22 +72,22 @@
           office’s communication with clients.
         </p>
 
-        <div class="arjay-gallery-layer">
+        <div class="blog-gallery-layer">
 
-          <div class="arjay-thumb layer1">
+          <div class="blog-thumb layer1">
             <img src="images/arjay/first_week/D1-vehicle.jpg" alt="First week vehicle">
           </div>
         
-          <div class="arjay-thumb layer2">
+          <div class="blog-thumb layer2">
             <img src="images/arjay/first_week/D3-WFH.jpg" alt="Work from home">
           </div>
         
-          <div class="arjay-thumb layer3">
+          <div class="blog-thumb layer3">
             <img src="images/arjay/first_week/D5-fri-1.jpg" alt="Friday photo 1">
           </div>
         
           <button type="button"
-                  class="arjay-thumb arjay-thumb-more layer4"
+                  class="blog-thumb blog-thumb-more layer4"
                   data-label="VIEW MORE"
                   id="open-first-week-modal">
             <img src="images/arjay/first_week/D5-drandreas.png" alt="More photos">
@@ -99,16 +99,16 @@
   </main>
 
   <!-- Modal overlay showing all first week images -->
-  <div class="arjay-modal-overlay" id="arjay-first-week-modal">
-    <div class="arjay-modal-content">
-      <div class="arjay-modal-header">
-        <div class="arjay-modal-title">First Week - Arjay's Full Gallery</div>
-        <button type="button" class="arjay-modal-close" id="close-first-week-modal">&times;</button>
+  <div class="blog-modal-overlay" id="blog-first-week-modal">
+    <div class="blog-modal-content">
+      <div class="blog-modal-header">
+        <div class="blog-modal-title">First Week - Arjay's Full Gallery</div>
+        <button type="button" class="blog-modal-close" id="close-first-week-modal">&times;</button>
       </div>
-      <div class="arjay-modal-preview" id="arjay-modal-preview" aria-hidden="true"></div>
+      <div class="blog-modal-preview" id="blog-modal-preview" aria-hidden="true"></div>
 
-      <div class="arjay-modal-grid">
-        <div class="arjay-modal-grid-inner">
+      <div class="blog-modal-grid">
+        <div class="blog-modal-grid-inner">
           <img src="images/arjay/first_week/D1.jpg" alt="First week photo D1">
           <img src="images/arjay/first_week/D1-vehicle.jpg" alt="First week vehicle">
           <img src="images/arjay/first_week/D1-from-mamabby.jpg" alt="From Ma'am Abby">
@@ -139,9 +139,9 @@
     (function () {
       const openBtn = document.getElementById('open-first-week-modal');
       const closeBtn = document.getElementById('close-first-week-modal');
-      const modal = document.getElementById('arjay-first-week-modal');
-      const preview = document.getElementById('arjay-modal-preview');
-      const grid = modal ? modal.querySelector('.arjay-modal-grid-inner') : null;
+      const modal = document.getElementById('blog-first-week-modal');
+      const preview = document.getElementById('blog-modal-preview');
+      const grid = modal ? modal.querySelector('.blog-modal-grid-inner') : null;
 
       if (openBtn && modal && closeBtn) {
         openBtn.addEventListener('click', function () {

@@ -187,29 +187,29 @@ body {
 }
 
 /* Arjay first week layout */
-.arjay-layout {
+.blog-layout {
   display: flex;
   gap: 28px;
   align-items: flex-start;
 }
 
-.arjay-hero-column {
+.blog-hero-column {
   flex: 0 0 auto;
 }
 
-.arjay-main-column {
+.blog-main-column {
   flex: 1;
 }
 
-.arjay-week-block {
+.blog-week-block {
   margin-bottom: 28px;
 }
 
-.arjay-week-block:last-child {
+.blog-week-block:last-child {
   margin-bottom: 0;
 }
 
-.arjay-sign-off {
+.blog-sign-off {
   margin-top: 12px;
   font-size: 0.9rem;
   color: var(--midnight-text-muted);
@@ -217,24 +217,24 @@ body {
 }
 
 /* If the mini-gallery is on the left in the row, shift the title to sit above the text column */
-.arjay-week-gallery-left > .arjay-title {
+.blog-week-gallery-left > .blog-title {
   margin-left: 300px; /* 220px gallery width + ~80px gap */
 }
 
 @media (max-width: 900px) {
-  .arjay-week-gallery-left > .arjay-title {
+  .blog-week-gallery-left > .blog-title {
     margin-left: 0;
   }
 }
 
-.arjay-vertical-divider {
+.blog-vertical-divider {
   width: 1px;
   background: linear-gradient(to bottom, transparent, #ffb347, transparent);
   align-self: stretch;
   opacity: 0.7;
 }
 
-.arjay-hero-card {
+.blog-hero-card {
   width: 190px; /* small rounded rectangle */
   border-radius: 16px;
   overflow: hidden;
@@ -243,22 +243,22 @@ body {
   margin-bottom: 18px;
 }
 
-.arjay-hero-card:last-child {
+.blog-hero-card:last-child {
   margin-bottom: 0;
 }
 
-.arjay-hero-image-wrapper {
+.blog-hero-image-wrapper {
   position: relative;
 }
 
-.arjay-hero-image-wrapper img {
+.blog-hero-image-wrapper img {
   width: 100%;
   height: 110px; /* reduced height */
   display: block;
   object-fit: cover;
 }
 
-.arjay-hero-image-wrapper::after {
+.blog-hero-image-wrapper::after {
   content: "";
   position: absolute;
   left: 0;
@@ -268,7 +268,7 @@ body {
   background: linear-gradient(to top, rgba(0, 183, 255, 0.9), rgba(255, 165, 0, 0));
 }
 
-.arjay-hero-label {
+.blog-hero-label {
   position: absolute;
   left: 12px;
   bottom: 8px;
@@ -285,20 +285,20 @@ body {
   font-family: inherit;
 }
 
-.arjay-title {
+.blog-title {
   font-size: 1.2rem;
   margin-top: 10px;
   margin-bottom: 8px;
   font-family: "Helvetica", Arial, sans-serif;
 }
 
-.arjay-main-row {
+.blog-main-row {
   display: flex;
   gap: 80px;
   align-items: flex-start;
 }
 
-.arjay-paragraph {
+.blog-paragraph {
   flex: 2;
   line-height: 1.6;
   font-size: 0.95rem;
@@ -307,20 +307,20 @@ body {
   color: #ffffff;
 }
 
-.arjay-gallery {
+.blog-gallery {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.arjay-gallery-row {
+.blog-gallery-row {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
 }
 
-.arjay-thumb {
+.blog-thumb {
   position: relative;
   border-radius: 0;
   overflow: hidden;
@@ -328,7 +328,7 @@ body {
   background: linear-gradient(135deg, orange, skyblue); /* orange–skyblue gradient line */
 }
 
-.arjay-thumb img {
+.blog-thumb img {
   width: 150px;
   height: 150px;
   object-fit: cover;
@@ -336,24 +336,24 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.arjay-thumb-more {
+.blog-thumb-more {
   cursor: pointer;
   border: none;
   padding: 0;
   background: transparent;
 }
 
-.arjay-thumb img {
+.blog-thumb img {
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
-.arjay-thumb:hover img {
+.blog-thumb:hover img {
   transform: translateY(-3px);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
 /* fading color overlay from below on hover */
-.arjay-thumb::before {
+.blog-thumb::before {
   content: "";
   position: absolute;
   left: 0;
@@ -368,17 +368,17 @@ body {
 }
 
 /* alternate some thumbs to use sky blue overlay to feel more random */
-.arjay-gallery-row .arjay-thumb:nth-child(2)::before,
-.arjay-gallery-row:nth-child(2) .arjay-thumb:first-child::before {
+.blog-gallery-row .blog-thumb:nth-child(2)::before,
+.blog-gallery-row:nth-child(2) .blog-thumb:first-child::before {
   background: linear-gradient(to top, rgba(135, 206, 250, 0.9), transparent); /* sky blue */
 }
 
-.arjay-thumb:hover::before {
+.blog-thumb:hover::before {
   opacity: 1;
   transform: translateY(0);
 }
 
-.arjay-thumb-more::after {
+.blog-thumb-more::after {
   content: attr(data-label);
   position: absolute;
   inset: 0;
@@ -393,7 +393,7 @@ body {
 }
 
 /* Modal overlay for full gallery */
-.arjay-modal-overlay {
+.blog-modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
@@ -403,11 +403,11 @@ body {
   z-index: 999;
 }
 
-.arjay-modal-overlay.is-open {
+.blog-modal-overlay.is-open {
   display: flex;
 }
 
-.arjay-modal-content {
+.blog-modal-content {
   background: var(--midnight-surface);
   max-width: 900px;
   max-height: 90vh;
@@ -419,20 +419,20 @@ body {
   flex-direction: column;
 }
 
-.arjay-modal-header {
+.blog-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
 }
 
-.arjay-modal-title {
+.blog-modal-title {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--midnight-text);
 }
 
-.arjay-modal-close {
+.blog-modal-close {
   border: none;
   background: transparent;
   font-size: 1.4rem;
@@ -441,17 +441,17 @@ body {
   color: var(--midnight-text);
 }
 
-.arjay-modal-grid {
+.blog-modal-grid {
   overflow: auto;
 }
 
-.arjay-modal-grid-inner {
+.blog-modal-grid-inner {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 12px;
 }
 
-.arjay-modal-grid-inner img {
+.blog-modal-grid-inner img {
   width: 100%;
   height: 130px;
   object-fit: cover;
@@ -459,13 +459,13 @@ body {
 }
 
 /* Click-to-view preview inside modal */
-.arjay-modal-preview {
+.blog-modal-preview {
   display: flex;
   justify-content: center;
   margin-bottom: 12px;
 }
 
-.arjay-modal-preview img {
+.blog-modal-preview img {
   max-width: 100%;
   max-height: 45vh;
   border-radius: 12px;
@@ -475,7 +475,7 @@ body {
 
 /* Layered gallery */
 
-.arjay-gallery-layer{
+.blog-gallery-layer{
   position:relative;
   width:220px;
   height:190px;
@@ -483,7 +483,7 @@ body {
 
 /* base image style */
 
-.arjay-gallery-layer .arjay-thumb{
+.blog-gallery-layer .blog-thumb{
   position:absolute;
   width:140px;
   height:140px;
@@ -493,7 +493,7 @@ body {
   transition:transform .25s ease;
 }
 
-.arjay-gallery-layer img{
+.blog-gallery-layer img{
   width:100%;
   height:100%;
   object-fit:cover;
@@ -533,7 +533,7 @@ body {
 
 /* hover lift */
 
-.arjay-gallery-layer .arjay-thumb:hover{
+.blog-gallery-layer .blog-thumb:hover{
   transform:translateY(-5px) scale(1.05);
 }
 
