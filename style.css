@@ -209,6 +209,13 @@ body {
   margin-bottom: 0;
 }
 
+.arjay-sign-off {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--midnight-text-muted);
+  font-style: italic;
+}
+
 /* If the mini-gallery is on the left in the row, shift the title to sit above the text column */
 .arjay-week-gallery-left > .arjay-title {
   margin-left: 300px; /* 220px gallery width + ~80px gap */

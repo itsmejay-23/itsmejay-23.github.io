@@ -51,49 +51,81 @@
           <div class="arjay-hero-label">First Week</div>
         </div>
       </div>
+
+      <div class="arjay-hero-card">
+        <div class="arjay-hero-image-wrapper">
+          <img src="images/ella/second_week/D1.jpg" alt="Second week highlight">
+          <div class="arjay-hero-label">Second Week</div>
+        </div>
+      </div>
     </aside>
 
     <!-- Vertical line separator -->
     <div class="arjay-vertical-divider"></div>
 
-    <!-- Right: title, paragraph, and small gallery beside paragraph -->
+    <!-- Right: both weeks -->
     <section class="arjay-main-column">
-      <h1 class="arjay-title">First Week - February 23-27, 2026</h1>
+      <div class="arjay-week-block">
+        <h1 class="arjay-title">First Week - February 23-27, 2026</h1>
 
-      <div class="arjay-main-row">
-        <p class="arjay-paragraph">
-          During my OJT from February 23–27, I assisted in transferring
-          office materials to help organize the workspace. I also edited
-          certificate names to ensure the accuracy of participant information.
-          In addition, I sent client satisfaction emails and drafted certificate
-          email content for proper communication with recipients. I continued
-          drafting certificate email content while also renaming certificates
-          in Google Drive to maintain organized digital records. Lastly,
-          I worked on improving the certificate naming format to ensure consistency
-          in file management!
-        </p>
+        <div class="arjay-main-row">
+          <p class="arjay-paragraph">
+            During my OJT from February 23–27, I assisted in transferring
+            office materials to help organize the workspace. I also edited
+            certificate names to ensure the accuracy of participant information.
+            In addition, I sent client satisfaction emails and drafted certificate
+            email content for proper communication with recipients. I continued
+            drafting certificate email content while also renaming certificates
+            in Google Drive to maintain organized digital records. Lastly,
+            I worked on improving the certificate naming format to ensure consistency
+            in file management!
+          </p>
 
-        <div class="arjay-gallery-layer">
-
-          <div class="arjay-thumb layer1">
-            <img src="images/ella/first_week/D1.png" alt="First week vehicle">
+          <div class="arjay-gallery-layer">
+            <div class="arjay-thumb layer1">
+              <img src="images/ella/first_week/D1.png" alt="First week vehicle">
+            </div>
+            <div class="arjay-thumb layer2">
+              <img src="images/ella/first_week/D3-WFH-05.png" alt="Work from home">
+            </div>
+            <div class="arjay-thumb layer3">
+              <img src="images/ella/first_week/D1-01.jpg" alt="Friday photo 1">
+            </div>
+            <button type="button"
+                    class="arjay-thumb arjay-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-first-week-modal">
+              <img src="images/ella/first_week/D1.jpg" alt="More photos">
+            </button>
           </div>
-        
-          <div class="arjay-thumb layer2">
-            <img src="images/ella/first_week/D3-WFH-05.png" alt="Work from home">
-          </div>
-        
-          <div class="arjay-thumb layer3">
-            <img src="images/ella/first_week/D1-01.jpg" alt="Friday photo 1">
-          </div>
-        
-          <button type="button"
-                  class="arjay-thumb arjay-thumb-more layer4"
-                  data-label="VIEW MORE"
-                  id="open-first-week-modal">
-            <img src="images/ella/first_week/D1.jpg" alt="More photos">
-          </button>       
         </div>
+      </div>
+
+      <div class="arjay-week-block arjay-week-gallery-left">
+        <h1 class="arjay-title">Second Week - March 2–6, 2026</h1>
+
+        <div class="arjay-main-row">
+          <div class="arjay-gallery-layer">
+            <div class="arjay-thumb layer1">
+              <img src="images/ella/second_week/D2.png" alt="Second week D2">
+            </div>
+            <div class="arjay-thumb layer2">
+              <img src="images/ella/second_week/D2_01.png" alt="Second week D2-01">
+            </div>
+            <div class="arjay-thumb layer3">
+              <img src="images/ella/second_week/D2_02.png" alt="Second week D2-02">
+            </div>
+            <button type="button"
+                    class="arjay-thumb arjay-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-second-week-modal">
+              <img src="images/ella/second_week/D2_03.jpg" alt="More second week photos">
+            </button>
+          </div>
+
+          <p class="arjay-paragraph">
+            From March 2–6, 2026, I attended an infographics meeting about the design to discuss the concept and layout. On the following day, I started drafting the infographic design and delivered a paper to the OP for signature. I also delivered documents to the OSAS (Dean and Admin Offices) for signatures, continued drafting the infographic, and attended a conference room meeting. Throughout the week, I continued designing and improving the infographic to refine its layout and content. Lastly, I checked the infographic with Ma'am Abby and gathered additional information to include in the infographic for accuracy and completeness.
+          </p>
         </div>
       </div>
     </section>
@@ -106,7 +138,7 @@
         <div class="arjay-modal-title">First Week - Ella's Full Gallery</div>
         <button type="button" class="arjay-modal-close" id="close-first-week-modal">&times;</button>
       </div>
-      <div class="arjay-modal-preview" id="arjay-modal-preview" aria-hidden="true"></div>
+      <div class="arjay-modal-preview" id="arjay-modal-preview-first" aria-hidden="true"></div>
 
       <div class="arjay-modal-grid">
         <div class="arjay-modal-grid-inner">
@@ -120,6 +152,27 @@
           <img src="images/ella/first_week/D4-01.jpg" alt="image_8">
           <img src="images/ella/first_week/D4.jpg" alt="image_9">
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal overlay showing all second week images -->
+  <div class="arjay-modal-overlay" id="arjay-second-week-modal">
+    <div class="arjay-modal-content">
+      <div class="arjay-modal-header">
+        <div class="arjay-modal-title">Second Week - Ella's Full Gallery</div>
+        <button type="button" class="arjay-modal-close" id="close-second-week-modal">&times;</button>
+      </div>
+      <div class="arjay-modal-preview" id="arjay-modal-preview-second" aria-hidden="true"></div>
+
+      <div class="arjay-modal-grid">
+        <div class="arjay-modal-grid-inner">
+          <img src="images/ella/second_week/D1.jpg" alt="Second week D1">
+          <img src="images/ella/second_week/D2.png" alt="Second week D2">
+          <img src="images/ella/second_week/D2_01.png" alt="Second week D2-01">
+          <img src="images/ella/second_week/D2_02.png" alt="Second week D2-02">
+          <img src="images/ella/second_week/D2_03.jpg" alt="Second week D2-03">
+          <img src="images/ella/second_week/D2_04.jpg" alt="Second week D2-04">
         </div>
       </div>
     </div>
@@ -127,51 +180,55 @@
 
   <script>
     (function () {
-      const openBtn = document.getElementById('open-first-week-modal');
-      const closeBtn = document.getElementById('close-first-week-modal');
-      const modal = document.getElementById('arjay-first-week-modal');
-      const preview = document.getElementById('arjay-modal-preview');
-      const grid = modal ? modal.querySelector('.arjay-modal-grid-inner') : null;
+      function setupModal(openId, modalId, closeId, previewId) {
+        const openBtn = document.getElementById(openId);
+        const closeBtn = document.getElementById(closeId);
+        const modal = document.getElementById(modalId);
+        const preview = document.getElementById(previewId);
+        const grid = modal ? modal.querySelector('.arjay-modal-grid-inner') : null;
 
-      if (openBtn && modal && closeBtn) {
-        openBtn.addEventListener('click', function () {
-          modal.classList.add('is-open');
-        });
+        if (openBtn && modal && closeBtn) {
+          openBtn.addEventListener('click', function () {
+            modal.classList.add('is-open');
+          });
 
-        closeBtn.addEventListener('click', function () {
-          modal.classList.remove('is-open');
-          if (preview) {
-            preview.innerHTML = "";
-            preview.setAttribute('aria-hidden', 'true');
-          }
-        });
-
-        modal.addEventListener('click', function (e) {
-          if (e.target === modal) {
+          closeBtn.addEventListener('click', function () {
             modal.classList.remove('is-open');
             if (preview) {
               preview.innerHTML = "";
               preview.setAttribute('aria-hidden', 'true');
             }
-          }
-        });
+          });
+
+          modal.addEventListener('click', function (e) {
+            if (e.target === modal) {
+              modal.classList.remove('is-open');
+              if (preview) {
+                preview.innerHTML = "";
+                preview.setAttribute('aria-hidden', 'true');
+              }
+            }
+          });
+        }
+
+        if (grid && preview) {
+          grid.addEventListener('click', function (e) {
+            const img = e.target.closest('img');
+            if (!img) return;
+
+            const big = document.createElement('img');
+            big.src = img.src;
+            big.alt = img.alt || "";
+
+            preview.innerHTML = "";
+            preview.appendChild(big);
+            preview.setAttribute('aria-hidden', 'false');
+          });
+        }
       }
 
-      // make images in the modal clickable to view larger
-      if (grid && preview) {
-        grid.addEventListener('click', function (e) {
-          const img = e.target.closest('img');
-          if (!img) return;
-
-          const big = document.createElement('img');
-          big.src = img.src;
-          big.alt = img.alt || "";
-
-          preview.innerHTML = "";
-          preview.appendChild(big);
-          preview.setAttribute('aria-hidden', 'false');
-        });
-      }
+      setupModal('open-first-week-modal', 'arjay-first-week-modal', 'close-first-week-modal', 'arjay-modal-preview-first');
+      setupModal('open-second-week-modal', 'arjay-second-week-modal', 'close-second-week-modal', 'arjay-modal-preview-second');
     })();
   </script>
 </body>
