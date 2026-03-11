@@ -9,6 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="profile-filter.js" defer></script>
+  <style>
+    /* Hide hover name label for header profiles on this page only */
+    .profiles .profile span {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -29,7 +35,7 @@
         <img src="images/ella.webp" alt="Ella Balderama" />
         <span>Ella Balderama</span>
       </a>
-      <a href="index.html" class="profile" data-profile="edmar" title="Back to home">
+      <a href="index.html" class="profile" data-profile="edmar">
         <img src="images/edmar.webp" alt="Edmar Dolosa" />
         <span>Edmar Dolosa</span>
       </a>
