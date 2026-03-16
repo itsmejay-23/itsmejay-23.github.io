@@ -64,6 +64,13 @@
           <button type="button" class="blog-hero-label" aria-label="Second Week">Second Week</button>
         </div>
       </div>
+
+      <div class="blog-hero-card">
+        <div class="blog-hero-image-wrapper">
+          <img src="images/arjay/third_week/D4_3.jpg" alt="Third week highlight">
+          <button type="button" class="blog-hero-label" aria-label="Third Week">Third Week</button>
+        </div>
+      </div>
     </aside>
 
     <!-- Vertical line separator (continuous) -->
@@ -142,6 +149,39 @@
           </div>
         </div>
       </div>
+
+      <div class="blog-week-block">
+        <h1 class="blog-title">Third Week - February 9-13, 2026</h1>
+
+        <div class="blog-main-row">
+          <p class="blog-paragraph">
+            This week included several office tasks, document processing, and event assistance. Time was spent working on Canvas-related activities and delivering important papers to the OVP for signature. During the YMCA event, assistance was provided in multiple roles including videography and photography, serving, and helping with cleaning after the program. Other office responsibilities included retrieving several items from the old IRO office and transferring them to the new office located at the library. Additionally, papers requested by the IRO staff were picked up from the Legal Office.
+          </p>
+
+          <div class="blog-gallery-layer">
+
+            <div class="blog-thumb layer1">
+              <img src="images/arjay/third_week/D2_13.jpg" alt="Third week D2_13">
+            </div>
+          
+            <div class="blog-thumb layer2">
+              <img src="images/arjay/third_week/D3_4.jpg" alt="Third week D3_4">
+            </div>
+          
+            <div class="blog-thumb layer3">
+              <img src="images/arjay/third_week/D4_1.jpg" alt="Third week D4_1">
+            </div>
+          
+            <button type="button"
+                    class="blog-thumb blog-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-third-week-modal">
+              <img src="images/arjay/third_week/D4_3.jpg" alt="More third week photos">
+            </button>       
+          </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -205,6 +245,32 @@
     </div>
   </div>
 
+  <!-- Modal overlay showing all third week images -->
+  <div class="blog-modal-overlay" id="blog-third-week-modal">
+    <div class="blog-modal-content">
+      <div class="blog-modal-header">
+        <div class="blog-modal-title">Third Week - Arjay's Full Gallery</div>
+        <button type="button" class="blog-modal-close" id="close-third-week-modal">&times;</button>
+      </div>
+      <div class="blog-modal-preview" id="blog-modal-preview-third" aria-hidden="true"></div>
+
+      <div class="blog-modal-grid">
+        <div class="blog-modal-grid-inner">
+          <img src="images/arjay/third_week/D2_9.jpg" alt="Third week photo D2_9">
+          <img src="images/arjay/third_week/D2_13.jpg" alt="Third week photo D2_13">
+          <img src="images/arjay/third_week/D2_19.jpg" alt="Third week photo D2_19">
+          <img src="images/arjay/third_week/D3_4.jpg" alt="Third week photo D3_4">
+          <img src="images/arjay/third_week/D3_5.jpg" alt="Third week photo D3_5">
+          <img src="images/arjay/third_week/D4_1.jpg" alt="Third week photo D4_1">
+          <img src="images/arjay/third_week/D4_2.jpg" alt="Third week photo D4_2">
+          <img src="images/arjay/third_week/D4_3.jpg" alt="Third week photo D4_3">
+          <img src="images/arjay/third_week/D4_4.jpg" alt="Third week photo D4_4">
+          <img src="images/arjay/third_week/D4_5.jpg" alt="Third week photo D4_5">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       function setupModal(openId, modalId, closeId, previewId) {
@@ -257,6 +323,7 @@
 
       setupModal('open-first-week-modal', 'blog-first-week-modal', 'close-first-week-modal', 'blog-modal-preview-first');
       setupModal('open-second-week-modal', 'blog-second-week-modal', 'close-second-week-modal', 'blog-modal-preview-second');
+      setupModal('open-third-week-modal', 'blog-third-week-modal', 'close-third-week-modal', 'blog-modal-preview-third');
     })();
   </script>
 </body>
