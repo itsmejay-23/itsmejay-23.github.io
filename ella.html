@@ -64,6 +64,13 @@
           <div class="blog-hero-label">Second Week</div>
         </div>
       </div>
+
+      <div class="blog-hero-card">
+        <div class="blog-hero-image-wrapper">
+          <img src="images/ella/third_week/D3.png" alt="Third week highlight">
+          <div class="blog-hero-label">Third Week</div>
+        </div>
+      </div>
     </aside>
 
     <!-- Vertical line separator -->
@@ -134,6 +141,34 @@
           </p>
         </div>
       </div>
+
+      <div class="blog-week-block" id="week-third">
+        <h1 class="blog-title" style="margin-top: 50px;">Third Week - February 9-13, 2026</h1>
+
+        <div class="blog-main-row">
+          <p class="blog-paragraph">
+            During the week of March 9–12, 2026, I worked on organizing files and materials in Canvas and assisted in delivering documents to the OVP for signature to ensure the completion of necessary office requirements. I also participated in the YMCA event, where I helped assist with the activities, served as a videographer and photographer, supported the serving of participants, and helped with cleaning after the event. In addition, I helped with various office tasks that supported the daily operations of the department. I also retrieved items from the old IRO office and transferred them to the new office located in the library to help organize office materials. Lastly, I collected SALN documents from the Legal Office as part of the office’s documentation and record-keeping process.
+          </p>
+
+          <div class="blog-gallery-layer">
+            <div class="blog-thumb layer1">
+              <img src="images/ella/third_week/D2_2.jpg" alt="Third week D2_2">
+            </div>
+            <div class="blog-thumb layer2">
+              <img src="images/ella/third_week/D2_3.jpg" alt="Third week D2_3">
+            </div>
+            <div class="blog-thumb layer3">
+              <img src="images/ella/third_week/D3.png" alt="Third week D3">
+            </div>
+            <button type="button"
+                    class="blog-thumb blog-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-third-week-modal">
+              <img src="images/ella/third_week/20260310_162934.jpg" alt="More third week photos">
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -179,6 +214,47 @@
           <img src="images/ella/second_week/D2_02.png" alt="Second week D2-02">
           <img src="images/ella/second_week/D2_03.jpg" alt="Second week D2-03">
           <img src="images/ella/second_week/D2_04.jpg" alt="Second week D2-04">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal overlay showing all third week images -->
+  <div class="blog-modal-overlay" id="blog-third-week-modal">
+    <div class="blog-modal-content">
+      <div class="blog-modal-header">
+        <div class="blog-modal-title">Third Week - Ella's Full Gallery</div>
+        <button type="button" class="blog-modal-close" id="close-third-week-modal">&times;</button>
+      </div>
+      <div class="blog-modal-preview" id="blog-modal-preview-third" aria-hidden="true"></div>
+
+      <div class="blog-modal-grid">
+        <div class="blog-modal-grid-inner">
+          <img src="images/ella/third_week/1773143513671.jpg" alt="Third week photo 1773143513671">
+          <img src="images/ella/third_week/20260309_080413.jpg" alt="Third week photo 20260309_080413">
+          <img src="images/ella/third_week/20260309_080746.jpg" alt="Third week photo 20260309_080746">
+          <img src="images/ella/third_week/20260309_084048.jpg" alt="Third week photo 20260309_084048">
+          <img src="images/ella/third_week/20260309_085400.jpg" alt="Third week photo 20260309_085400">
+          <img src="images/ella/third_week/20260309_085819.jpg" alt="Third week photo 20260309_085819">
+          <img src="images/ella/third_week/20260309_095349.jpg" alt="Third week photo 20260309_095349">
+          <img src="images/ella/third_week/20260310_103852.jpg" alt="Third week photo 20260310_103852">
+          <img src="images/ella/third_week/20260310_103859.jpg" alt="Third week photo 20260310_103859">
+          <img src="images/ella/third_week/20260310_103901.jpg" alt="Third week photo 20260310_103901">
+          <img src="images/ella/third_week/20260310_162934.jpg" alt="Third week photo 20260310_162934">
+          <img src="images/ella/third_week/20260310_162937.jpg" alt="Third week photo 20260310_162937">
+          <img src="images/ella/third_week/20260311_154850.jpg" alt="Third week photo 20260311_154850">
+          <img src="images/ella/third_week/D2_2.jpg" alt="Third week photo D2_2">
+          <img src="images/ella/third_week/D2_3.jpg" alt="Third week photo D2_3">
+          <img src="images/ella/third_week/D2_4.jpg" alt="Third week photo D2_4">
+          <img src="images/ella/third_week/D2_8.jpg" alt="Third week photo D2_8">
+          <img src="images/ella/third_week/D2_17.jpg" alt="Third week photo D2_17">
+          <img src="images/ella/third_week/D2_18.jpg" alt="Third week photo D2_18">
+          <img src="images/ella/third_week/D3.png" alt="Third week photo D3">
+          <img src="images/ella/third_week/D3_6.png" alt="Third week photo D3_6">
+          <img src="images/ella/third_week/IMG_20260312_133131_932.jpg" alt="Third week photo IMG 20260312 133131 932">
+          <img src="images/ella/third_week/IMG_20260312_134802_388.jpg" alt="Third week photo IMG 20260312 134802 388">
+          <img src="images/ella/third_week/IMG_20260312_140238_657.jpg" alt="Third week photo IMG 20260312 140238 657">
+          <img src="images/ella/third_week/IMG_20260312_140241_394.jpg" alt="Third week photo IMG 20260312 140241 394">
         </div>
       </div>
     </div>
@@ -235,6 +311,7 @@
 
       setupModal('open-first-week-modal', 'blog-first-week-modal', 'close-first-week-modal', 'blog-modal-preview-first');
       setupModal('open-second-week-modal', 'blog-second-week-modal', 'close-second-week-modal', 'blog-modal-preview-second');
+      setupModal('open-third-week-modal', 'blog-third-week-modal', 'close-third-week-modal', 'blog-modal-preview-third');
 
       // Make hero highlight cards (image + label) clickable to scroll to the week,
       // without changing their vertical order
@@ -247,6 +324,7 @@
           let targetId = null;
           if (label === 'First Week') targetId = 'week-first';
           else if (label === 'Second Week') targetId = 'week-second';
+          else if (label === 'Third Week') targetId = 'week-third';
 
           card.addEventListener('click', function (e) {
             e.preventDefault();
