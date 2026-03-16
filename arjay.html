@@ -78,7 +78,7 @@
 
     <!-- Right: both weeks stacked -->
     <section class="blog-main-column">
-      <div class="blog-week-block">
+      <div class="blog-week-block" id="week-first">
         <h1 class="blog-title">First Week - February 23-27, 2026</h1>
 
         <div class="blog-main-row">
@@ -118,7 +118,7 @@
         </div>
       </div>
 
-      <div class="blog-week-block blog-week-gallery-left">
+      <div class="blog-week-block blog-week-gallery-left" id="week-second">
         <h1 class="blog-title">Second Week - March 02-06, 2026</h1>
 
         <div class="blog-main-row">
@@ -150,7 +150,7 @@
         </div>
       </div>
 
-      <div class="blog-week-block">
+      <div class="blog-week-block" id="week-third">
         <h1 class="blog-title">Third Week - February 9-13, 2026</h1>
 
         <div class="blog-main-row">
@@ -324,6 +324,30 @@
       setupModal('open-first-week-modal', 'blog-first-week-modal', 'close-first-week-modal', 'blog-modal-preview-first');
       setupModal('open-second-week-modal', 'blog-second-week-modal', 'close-second-week-modal', 'blog-modal-preview-second');
       setupModal('open-third-week-modal', 'blog-third-week-modal', 'close-third-week-modal', 'blog-modal-preview-third');
+
+      // Make hero highlight cards (image + label) clickable to scroll to the week,
+      // without changing their vertical order
+      const heroColumn = document.querySelector('.blog-hero-column');
+
+      if (heroColumn) {
+        heroColumn.querySelectorAll('.blog-hero-card').forEach(function (card) {
+          const labelBtn = card.querySelector('.blog-hero-label');
+          const label = labelBtn ? labelBtn.getAttribute('aria-label') || '' : '';
+          let targetId = null;
+          if (label === 'First Week') targetId = 'week-first';
+          else if (label === 'Second Week') targetId = 'week-second';
+          else if (label === 'Third Week') targetId = 'week-third';
+
+          card.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (!targetId) return;
+            const target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+      }
     })();
   </script>
 </body>
