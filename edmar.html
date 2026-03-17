@@ -64,12 +64,19 @@
           <button type="button" class="blog-hero-label" aria-label="Second Week">Second Week</button>
         </div>
       </div>
+
+      <div class="blog-hero-card">
+        <div class="blog-hero-image-wrapper">
+          <img src="images/edmar/third_week/W3-YMCA EVENT.jpg" alt="Third week highlight">
+          <button type="button" class="blog-hero-label" aria-label="Third Week">Third Week</button>
+        </div>
+      </div>
     </aside>
 
     <!-- Vertical line separator (continuous) -->
     <div class="blog-vertical-divider"></div>
 
-    <!-- Right: both weeks stacked -->
+    <!-- Right: weeks stacked -->
     <section class="blog-main-column">
       <div class="blog-week-block" id="week-first">
         <h1 class="blog-title">First Week - February 23-27, 2026</h1>
@@ -135,6 +142,39 @@
           </div>
         </div>
       </div>
+
+      <div class="blog-week-block" id="week-third">
+        <h1 class="blog-title">Third Week - March 09-13, 2026</h1>
+
+        <div class="blog-main-row">
+          <p class="blog-paragraph">
+            From March 9 to March 13, 2026, I did several office-related tasks and provided assistance during an event. On March 9 and March 10, I delivered documents to the Office of the Vice President (OVP) for signature. On March 10, I also assisted during a YMCA event by helping serve participants and cleaning the area after the event. On March 12, I retrieved several items from the old International Relations Office (IRO) and transferred them to the new office located in the library.
+          </p>
+
+          <div class="blog-gallery-layer">
+
+            <div class="blog-thumb layer1">
+              <img src="images/edmar/third_week/W3-D2-01.jpg" alt="Third week W3-D2-01">
+            </div>
+          
+            <div class="blog-thumb layer2">
+              <img src="images/edmar/third_week/W3-D2-03.jpg" alt="Third week W3-D2-03">
+            </div>
+          
+            <div class="blog-thumb layer3">
+              <img src="images/edmar/third_week/W3-D2-05.jpg" alt="Third week W3-D2-05">
+            </div>
+          
+            <button type="button"
+                    class="blog-thumb blog-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-third-week-modal">
+              <img src="images/edmar/third_week/W3-D2-07.jpg" alt="More third week photos">
+            </button>       
+          </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -195,6 +235,31 @@
     </div>
   </div>
 
+  <!-- Modal overlay showing all third week images -->
+  <div class="blog-modal-overlay" id="blog-third-week-modal">
+    <div class="blog-modal-content">
+      <div class="blog-modal-header">
+        <div class="blog-modal-title">Third Week - Edmar's Full Gallery</div>
+        <button type="button" class="blog-modal-close" id="close-third-week-modal">&times;</button>
+      </div>
+      <div class="blog-modal-preview" id="blog-modal-preview-third" aria-hidden="true"></div>
+
+      <div class="blog-modal-grid">
+        <div class="blog-modal-grid-inner">
+          <img src="images/edmar/third_week/W3-D2.jpg" alt="Third week photo W3-D2">
+          <img src="images/edmar/third_week/w3-YMCA EVENT.jpg" alt="Third week photo w3-YMCA EVENT">
+          <img src="images/edmar/third_week/W3-D2-01.jpg" alt="Third week photo W3-D2-01">
+          <img src="images/edmar/third_week/W3-D2-02.jpg" alt="Third week photo W3-D2-02">
+          <img src="images/edmar/third_week/W3-D2-03.jpg" alt="Third week photo W3-D2-03">
+          <img src="images/edmar/third_week/W3-D2-04.jpg" alt="Third week photo W3-D2-04">
+          <img src="images/edmar/third_week/W3-D2-05.jpg" alt="Third week photo W3-D2-05">
+          <img src="images/edmar/third_week/W3-D2-06.jpg" alt="Third week photo W3-D2-06">
+          <img src="images/edmar/third_week/W3-D2-07.jpg" alt="Third week photo W3-D2-07">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       function setupModal(openId, modalId, closeId, previewId) {
@@ -247,6 +312,7 @@
 
       setupModal('open-first-week-modal', 'blog-first-week-modal', 'close-first-week-modal', 'blog-modal-preview-first');
       setupModal('open-second-week-modal', 'blog-second-week-modal', 'close-second-week-modal', 'blog-modal-preview-second');
+      setupModal('open-third-week-modal', 'blog-third-week-modal', 'close-third-week-modal', 'blog-modal-preview-third');
 
       // Make hero highlight cards (image + label) clickable to scroll to the week,
       // without changing their vertical order
@@ -259,6 +325,7 @@
           let targetId = null;
           if (label === 'First Week') targetId = 'week-first';
           else if (label === 'Second Week') targetId = 'week-second';
+          else if (label === 'Third Week') targetId = 'week-third';
 
           card.addEventListener('click', function (e) {
             e.preventDefault();
