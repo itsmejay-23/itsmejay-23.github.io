@@ -71,6 +71,13 @@
           <button type="button" class="blog-hero-label" aria-label="Third Week">Third Week</button>
         </div>
       </div>
+
+      <div class="blog-hero-card">
+        <div class="blog-hero-image-wrapper">
+          <img src="images/edmar/fourth_week/W4-D4.png" alt="Fourth week highlight">
+          <button type="button" class="blog-hero-label" aria-label="Fourth Week">Fourth Week</button>
+        </div>
+      </div>
     </aside>
 
     <!-- Vertical line separator (continuous) -->
@@ -162,7 +169,7 @@
             </div>
           
             <div class="blog-thumb layer3">
-              <img src="images/edmar/third_week/W3-D2-05.jpg" alt="Third week W3-D2-05">
+              <img src="images/edmar/third_week/W3-D5-WFH.png" alt="Third week W3-D5 work from home">
             </div>
           
             <button type="button"
@@ -173,6 +180,37 @@
             </button>       
           </div>
           </div>
+        </div>
+      </div>
+
+      <div class="blog-week-block blog-week-gallery-left" id="week-fourth">
+        <h1 class="blog-title">Fourth Week - March 16-20, 2026</h1>
+
+        <div class="blog-main-row">
+          <div class="blog-gallery-layer">
+            <div class="blog-thumb layer1">
+              <img src="images/edmar/fourth_week/W4-D4.png" alt="Fourth week W4-D4">
+            </div>
+
+            <div class="blog-thumb layer2">
+              <img src="images/edmar/fourth_week/W4-D5.png" alt="Fourth week W4-D5">
+            </div>
+
+            <div class="blog-thumb layer3">
+              <img src="images/edmar/fourth_week/W4-D4.png" alt="Fourth week W4-D4">
+            </div>
+
+            <button type="button"
+                    class="blog-thumb blog-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-fourth-week-modal">
+              <img src="images/edmar/fourth_week/W4-D5.png" alt="More fourth week photos">
+            </button>
+          </div>
+
+          <p class="blog-paragraph">
+           blablabla
+          </p>
         </div>
       </div>
     </section>
@@ -255,6 +293,25 @@
           <img src="images/edmar/third_week/W3-D2-05.jpg" alt="Third week photo W3-D2-05">
           <img src="images/edmar/third_week/W3-D2-06.jpg" alt="Third week photo W3-D2-06">
           <img src="images/edmar/third_week/W3-D2-07.jpg" alt="Third week photo W3-D2-07">
+          <img src="images/edmar/third_week/W3-D5-WFH.png" alt="Third week W3-D5 work from home">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal overlay showing all fourth week images -->
+  <div class="blog-modal-overlay" id="blog-fourth-week-modal">
+    <div class="blog-modal-content">
+      <div class="blog-modal-header">
+        <div class="blog-modal-title">Fourth Week - Edmar's Full Gallery</div>
+        <button type="button" class="blog-modal-close" id="close-fourth-week-modal">&times;</button>
+      </div>
+      <div class="blog-modal-preview" id="blog-modal-preview-fourth" aria-hidden="true"></div>
+
+      <div class="blog-modal-grid">
+        <div class="blog-modal-grid-inner">
+          <img src="images/edmar/fourth_week/W4-D4.png" alt="Fourth week W4-D4">
+          <img src="images/edmar/fourth_week/W4-D5.png" alt="Fourth week W4-D5">
         </div>
       </div>
     </div>
@@ -313,6 +370,7 @@
       setupModal('open-first-week-modal', 'blog-first-week-modal', 'close-first-week-modal', 'blog-modal-preview-first');
       setupModal('open-second-week-modal', 'blog-second-week-modal', 'close-second-week-modal', 'blog-modal-preview-second');
       setupModal('open-third-week-modal', 'blog-third-week-modal', 'close-third-week-modal', 'blog-modal-preview-third');
+      setupModal('open-fourth-week-modal', 'blog-fourth-week-modal', 'close-fourth-week-modal', 'blog-modal-preview-fourth');
 
       // Make hero highlight cards (image + label) clickable to scroll to the week,
       // without changing their vertical order
@@ -326,6 +384,7 @@
           if (label === 'First Week') targetId = 'week-first';
           else if (label === 'Second Week') targetId = 'week-second';
           else if (label === 'Third Week') targetId = 'week-third';
+          else if (label === 'Fourth Week') targetId = 'week-fourth';
 
           card.addEventListener('click', function (e) {
             e.preventDefault();
