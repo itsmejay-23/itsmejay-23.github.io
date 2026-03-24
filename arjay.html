@@ -71,6 +71,13 @@
           <button type="button" class="blog-hero-label" aria-label="Third Week">Third Week</button>
         </div>
       </div>
+
+      <div class="blog-hero-card">
+        <div class="blog-hero-image-wrapper">
+          <img src="images/arjay/fourth_week/D1_4.jpg" alt="Fourth week highlight">
+          <button type="button" class="blog-hero-label" aria-label="Fourth Week">Fourth Week</button>
+        </div>
+      </div>
     </aside>
 
     <!-- Vertical line separator (continuous) -->
@@ -182,6 +189,34 @@
           </div>
         </div>
       </div>
+
+      <div class="blog-week-block blog-week-gallery-left" id="week-fourth">
+        <h1 class="blog-title" style="margin-top: 50px;">Fourth Week - February 16-20, 2026</h1>
+
+        <div class="blog-main-row">
+          <div class="blog-gallery-layer">
+            <div class="blog-thumb layer1">
+              <img src="images/arjay/fourth_week/D1_1.jpg" alt="Fourth week D1_1">
+            </div>
+            <div class="blog-thumb layer2">
+              <img src="images/arjay/fourth_week/D1_3.jpg" alt="Fourth week D1_3">
+            </div>
+            <div class="blog-thumb layer3">
+              <img src="images/arjay/fourth_week/D1_4.jpg" alt="Fourth week D1_4">
+            </div>
+            <button type="button"
+                    class="blog-thumb blog-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-fourth-week-modal">
+              <img src="images/arjay/fourth_week/D1_5.jpg" alt="More fourth week photos">
+            </button>
+          </div>
+
+          <p class="blog-paragraph">
+            This week involved a mix of technical tasks, document handling, and continued creative work on the infographic project. Initial tasks included testing routers and checking names in Google Drive for accuracy and organization. Work on the infographic design continued throughout the week, with ongoing drafting and refinement, including time spent working from home. Additional responsibilities included receiving and processing documents from various offices such as the College of Law and the PLY/FLY office. A QR code was also created as part of the infographic requirements, contributing to the overall development and completion of the design.
+          </p>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -275,6 +310,33 @@
     </div>
   </div>
 
+  <!-- Modal overlay showing all fourth week images -->
+  <div class="blog-modal-overlay" id="blog-fourth-week-modal">
+    <div class="blog-modal-content">
+      <div class="blog-modal-header">
+        <div class="blog-modal-title">Fourth Week - Arjay's Full Gallery</div>
+        <button type="button" class="blog-modal-close" id="close-fourth-week-modal">&times;</button>
+      </div>
+      <div class="blog-modal-preview" id="blog-modal-preview-fourth" aria-hidden="true"></div>
+
+      <div class="blog-modal-grid">
+        <div class="blog-modal-grid-inner">
+          <img src="images/arjay/fourth_week/D1_1.jpg" alt="Fourth week D1_1">
+          <img src="images/arjay/fourth_week/D1_3.jpg" alt="Fourth week D1_3">
+          <img src="images/arjay/fourth_week/D1_4.jpg" alt="Fourth week D1_4">
+          <img src="images/arjay/fourth_week/D1_5.jpg" alt="Fourth week D1_5">
+          <img src="images/arjay/fourth_week/D2_1.png" alt="Fourth week D2_1">
+          <img src="images/arjay/fourth_week/D2_2.png" alt="Fourth week D2_2">
+          <img src="images/arjay/fourth_week/IMG_20260317_103828_366.jpg" alt="Fourth week IMG_20260317_103828_366">
+          <img src="images/arjay/fourth_week/IMG_20260317_103830_191.jpg" alt="Fourth week IMG_20260317_103830_191">
+          <img src="images/arjay/fourth_week/651049630_2659095344475414_9151462873910262731_n.png" alt="Fourth week photo 651049630">
+          <img src="images/arjay/fourth_week/653826181_878815501846027_1225221912493517562_n.png" alt="Fourth week photo 653826181">
+          <img src="images/arjay/fourth_week/654668394_26768876489397046_913980961103234199_n.png" alt="Fourth week photo 654668394">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       function setupModal(openId, modalId, closeId, previewId) {
@@ -328,6 +390,7 @@
       setupModal('open-first-week-modal', 'blog-first-week-modal', 'close-first-week-modal', 'blog-modal-preview-first');
       setupModal('open-second-week-modal', 'blog-second-week-modal', 'close-second-week-modal', 'blog-modal-preview-second');
       setupModal('open-third-week-modal', 'blog-third-week-modal', 'close-third-week-modal', 'blog-modal-preview-third');
+      setupModal('open-fourth-week-modal', 'blog-fourth-week-modal', 'close-fourth-week-modal', 'blog-modal-preview-fourth');
 
       // Make hero highlight cards (image + label) clickable to scroll to the week,
       // without changing their vertical order
@@ -341,6 +404,7 @@
           if (label === 'First Week') targetId = 'week-first';
           else if (label === 'Second Week') targetId = 'week-second';
           else if (label === 'Third Week') targetId = 'week-third';
+          else if (label === 'Fourth Week') targetId = 'week-fourth';
 
           card.addEventListener('click', function (e) {
             e.preventDefault();
