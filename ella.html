@@ -71,6 +71,13 @@
           <div class="blog-hero-label">Third Week</div>
         </div>
       </div>
+
+      <div class="blog-hero-card">
+        <div class="blog-hero-image-wrapper">
+          <img src="images/ella/fourth_week/D1_1.jpg" alt="Fourth week highlight">
+          <div class="blog-hero-label">Fourth Week</div>
+        </div>
+      </div>
     </aside>
 
     <!-- Vertical line separator -->
@@ -169,6 +176,34 @@
           </div>
         </div>
       </div>
+
+      <div class="blog-week-block blog-week-gallery-left" id="week-fourth">
+        <h1 class="blog-title" style="margin-top: 50px;">Fourth Week - February 16-20, 2026</h1>
+
+        <div class="blog-main-row">
+          <div class="blog-gallery-layer">
+            <div class="blog-thumb layer1">
+              <img src="images/ella/fourth_week/D1_1.jpg" alt="Fourth week D1_1">
+            </div>
+            <div class="blog-thumb layer2">
+              <img src="images/ella/fourth_week/D1_2.jpg" alt="Fourth week D1_2">
+            </div>
+            <div class="blog-thumb layer3">
+              <img src="images/ella/fourth_week/D1_4.jpg" alt="Fourth week D1_4">
+            </div>
+            <button type="button"
+                    class="blog-thumb blog-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-fourth-week-modal">
+              <img src="images/ella/fourth_week/D1_5.jpg" alt="More fourth week photos">
+            </button>
+          </div>
+
+          <p class="blog-paragraph">
+            During the week of March 16–20, 2026, I performed various OJT tasks that supported both technical and administrative work in the office. I tested routers to ensure proper connectivity and checked names in Google Drive to verify accuracy of records. I also continued drafting infographics while receiving documents from the BUGS and College of Law, as well as from the PLY/FLY office, assisting in proper document handling. In addition, I created a QR code to be used in the infographic and continued enhancing its design and content. Furthermore, I continued drafting the infographics while working from home (WFH) on March 19 and 20 to ensure continuous progress and completion of assigned tasks.
+          </p>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -260,6 +295,37 @@
     </div>
   </div>
 
+  <!-- Modal overlay showing all fourth week images -->
+  <div class="blog-modal-overlay" id="blog-fourth-week-modal">
+    <div class="blog-modal-content">
+      <div class="blog-modal-header">
+        <div class="blog-modal-title">Fourth Week - Ella's Full Gallery</div>
+        <button type="button" class="blog-modal-close" id="close-fourth-week-modal">&times;</button>
+      </div>
+      <div class="blog-modal-preview" id="blog-modal-preview-fourth" aria-hidden="true"></div>
+
+      <div class="blog-modal-grid">
+        <div class="blog-modal-grid-inner">
+          <img src="images/ella/fourth_week/D1_1.jpg" alt="Fourth week D1_1">
+          <img src="images/ella/fourth_week/D1_2.jpg" alt="Fourth week D1_2">
+          <img src="images/ella/fourth_week/D1_4.jpg" alt="Fourth week D1_4">
+          <img src="images/ella/fourth_week/D1_5.jpg" alt="Fourth week D1_5">
+          <img src="images/ella/fourth_week/IMG_20260317_103809_339.jpg" alt="Fourth week IMG_20260317_103809_339">
+          <img src="images/ella/fourth_week/IMG_20260317_103812_946.jpg" alt="Fourth week IMG_20260317_103812_946">
+          <img src="images/ella/fourth_week/IMG_20260317_103851_165.jpg" alt="Fourth week IMG_20260317_103851_165">
+          <img src="images/ella/fourth_week/IMG_20260317_104839_713.jpg" alt="Fourth week IMG_20260317_104839_713">
+          <img src="images/ella/fourth_week/IMG_20260317_133555_417.jpg" alt="Fourth week IMG_20260317_133555_417">
+          <img src="images/ella/fourth_week/IMG_20260317_133559_838.jpg" alt="Fourth week IMG_20260317_133559_838">
+          <img src="images/ella/fourth_week/IMG_20260317_133707_143.jpg" alt="Fourth week IMG_20260317_133707_143">
+          <img src="images/ella/fourth_week/IMG_20260317_133935_439.jpg" alt="Fourth week IMG_20260317_133935_439">
+          <img src="images/ella/fourth_week/IMG_20260317_133942_313.jpg" alt="Fourth week IMG_20260317_133942_313">
+          <img src="images/ella/fourth_week/IMG_20260317_134026_403.jpg" alt="Fourth week IMG_20260317_134026_403">
+          <img src="images/ella/fourth_week/IMG_20260317_134049_906.jpg" alt="Fourth week IMG_20260317_134049_906">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       function setupModal(openId, modalId, closeId, previewId) {
@@ -312,6 +378,7 @@
       setupModal('open-first-week-modal', 'blog-first-week-modal', 'close-first-week-modal', 'blog-modal-preview-first');
       setupModal('open-second-week-modal', 'blog-second-week-modal', 'close-second-week-modal', 'blog-modal-preview-second');
       setupModal('open-third-week-modal', 'blog-third-week-modal', 'close-third-week-modal', 'blog-modal-preview-third');
+      setupModal('open-fourth-week-modal', 'blog-fourth-week-modal', 'close-fourth-week-modal', 'blog-modal-preview-fourth');
 
       // Make hero highlight cards (image + label) clickable to scroll to the week,
       // without changing their vertical order
@@ -325,6 +392,7 @@
           if (label === 'First Week') targetId = 'week-first';
           else if (label === 'Second Week') targetId = 'week-second';
           else if (label === 'Third Week') targetId = 'week-third';
+          else if (label === 'Fourth Week') targetId = 'week-fourth';
 
           card.addEventListener('click', function (e) {
             e.preventDefault();
