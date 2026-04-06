@@ -78,6 +78,13 @@
           <div class="blog-hero-label">Fourth Week</div>
         </div>
       </div>
+
+      <div class="blog-hero-card">
+        <div class="blog-hero-image-wrapper">
+          <img src="images/ella/fifth_week/IMG_20260323_080156_362.jpg" alt="Fifth week highlight">
+          <div class="blog-hero-label">Fifth Week</div>
+        </div>
+      </div>
     </aside>
 
     <!-- Vertical line separator -->
@@ -204,6 +211,34 @@
           </p>
         </div>
       </div>
+
+      <div class="blog-week-block" id="week-fifth">
+        <h1 class="blog-title" style="margin-top: 50px;">Fifth Week - March 23–27, 2026</h1>
+
+        <div class="blog-main-row">
+          <p class="blog-paragraph">
+            During the week of March 23–27, 2026, I worked on editing the International Report and assisted in accommodating foreign visitors, ensuring they were properly guided and supported. I continued editing the International Report while also helping in setting up the conference room for law students to prepare for their activities. Additionally, I continued drafting infographics alongside my editing tasks to maintain progress on both assignments. While working from home (WFH), I continued editing the International Report to ensure consistency and completion. Lastly, I used my remaining time on March 27 to finalize and review the report and infographic outputs, ensuring accuracy and quality of work.
+          </p>
+
+          <div class="blog-gallery-layer">
+            <div class="blog-thumb layer1">
+              <img src="images/ella/fifth_week/IMG_20260323_080156_362.jpg" alt="Fifth week photo 1">
+            </div>
+            <div class="blog-thumb layer2">
+              <img src="images/ella/fifth_week/IMG_20260323_080158_913.jpg" alt="Fifth week photo 2">
+            </div>
+            <div class="blog-thumb layer3">
+              <img src="images/ella/fifth_week/IMG_20260323_080202_410.jpg" alt="Fifth week photo 3">
+            </div>
+            <button type="button"
+                    class="blog-thumb blog-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-fifth-week-modal">
+              <img src="images/ella/fifth_week/IMG_20260323_080204_755.jpg" alt="More fifth week photos">
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -326,6 +361,30 @@
     </div>
   </div>
 
+  <div class="blog-modal-overlay" id="blog-fifth-week-modal">
+    <div class="blog-modal-content">
+      <div class="blog-modal-header">
+        <div class="blog-modal-title">Fifth Week - Ella's Full Gallery</div>
+        <button type="button" class="blog-modal-close" id="close-fifth-week-modal">&times;</button>
+      </div>
+      <div class="blog-modal-preview" id="blog-modal-preview-fifth" aria-hidden="true"></div>
+
+      <div class="blog-modal-grid">
+        <div class="blog-modal-grid-inner">
+          <img src="images/ella/fifth_week/IMG_20260323_080156_362.jpg" alt="Fifth week photo 1">
+          <img src="images/ella/fifth_week/IMG_20260323_080158_913.jpg" alt="Fifth week photo 2">
+          <img src="images/ella/fifth_week/IMG_20260323_080202_410.jpg" alt="Fifth week photo 3">
+          <img src="images/ella/fifth_week/IMG_20260323_080204_755.jpg" alt="Fifth week photo 4">
+          <img src="images/ella/fifth_week/IMG_20260323_080301_989.jpg" alt="Fifth week photo 5">
+          <img src="images/ella/fifth_week/received_1295389309109062.webp" alt="Fifth week photo 6">
+          <img src="images/ella/fifth_week/received_1593157658631111.jpeg" alt="Fifth week photo 7">
+          <img src="images/ella/fifth_week/received_914944511148610.webp" alt="Fifth week photo 8">
+          <img src="images/ella/fifth_week/received_958291550358953.jpeg" alt="Fifth week photo 9">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       function setupModal(openId, modalId, closeId, previewId) {
@@ -379,6 +438,7 @@
       setupModal('open-second-week-modal', 'blog-second-week-modal', 'close-second-week-modal', 'blog-modal-preview-second');
       setupModal('open-third-week-modal', 'blog-third-week-modal', 'close-third-week-modal', 'blog-modal-preview-third');
       setupModal('open-fourth-week-modal', 'blog-fourth-week-modal', 'close-fourth-week-modal', 'blog-modal-preview-fourth');
+      setupModal('open-fifth-week-modal', 'blog-fifth-week-modal', 'close-fifth-week-modal', 'blog-modal-preview-fifth');
 
       // Make hero highlight cards (image + label) clickable to scroll to the week,
       // without changing their vertical order
@@ -393,6 +453,7 @@
           else if (label === 'Second Week') targetId = 'week-second';
           else if (label === 'Third Week') targetId = 'week-third';
           else if (label === 'Fourth Week') targetId = 'week-fourth';
+          else if (label === 'Fifth Week') targetId = 'week-fifth';
 
           card.addEventListener('click', function (e) {
             e.preventDefault();
