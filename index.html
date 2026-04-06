@@ -76,6 +76,13 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="blog-modal-image-viewer" id="blog-modal-image-viewer">
+    <button type="button" class="blog-modal-arrow blog-modal-arrow-left" aria-label="Previous image">‹</button>
+    <img src="" alt="Expanded photo">
+    <button type="button" class="blog-modal-arrow blog-modal-arrow-right" aria-label="Next image">›</button>
+  </div>
 
     <section class="org-area">
       <div class="org-grid">
@@ -374,7 +381,13 @@
       }
     }
 
-    loadRandomImages();
+    loadRandomImages().then(function () {
+      if (randomGrid) {
+        imageItems = Array.from(randomGrid.querySelectorAll('img')).map(function (img) {
+          return { src: img.src, alt: img.alt || "" };
+        });
+      }
+    });
 
     // random modal open/close + click-to-preview
     if (openRandomBtn && randomModal && closeRandomBtn) {
@@ -402,18 +415,57 @@
     }
 
     if (randomGrid && randomPreview) {
-      randomGrid.addEventListener('click', function (e) {
-        const img = e.target.closest('img');
-        if (!img) return;
+      const imageViewer = document.getElementById('blog-modal-image-viewer');
+      const viewerImage = imageViewer ? imageViewer.querySelector('img') : null;
+      const arrowLeft = imageViewer ? imageViewer.querySelector('.blog-modal-arrow-left') : null;
+      const arrowRight = imageViewer ? imageViewer.querySelector('.blog-modal-arrow-right') : null;
+      let imageItems = [];
+      let currentImageIndex = 0;
 
-        const big = document.createElement('img');
-        big.src = img.src;
-        big.alt = img.alt || "";
+      function showViewerImage(index) {
+        if (!viewerImage || !imageItems.length) return;
+        currentImageIndex = (index + imageItems.length) % imageItems.length;
+        viewerImage.src = imageItems[currentImageIndex].src;
+        viewerImage.alt = imageItems[currentImageIndex].alt || "";
+        imageViewer.classList.add('is-active');
+      }
 
-        randomPreview.innerHTML = "";
-        randomPreview.appendChild(big);
-        randomPreview.setAttribute('aria-hidden', 'false');
-      });
+      if (imageViewer) {
+        imageViewer.addEventListener('click', function (e) {
+          if (e.target === imageViewer) {
+            imageViewer.classList.remove('is-active');
+          }
+        });
+      }
+
+      if (arrowLeft) {
+        arrowLeft.addEventListener('click', function (e) {
+          e.stopPropagation();
+          showViewerImage(currentImageIndex - 1);
+        });
+      }
+
+      if (arrowRight) {
+        arrowRight.addEventListener('click', function (e) {
+          e.stopPropagation();
+          showViewerImage(currentImageIndex + 1);
+        });
+      }
+
+      if (viewerImage) {
+        randomGrid.addEventListener('click', function (e) {
+          const img = e.target.closest('img');
+          if (!img) return;
+
+          const items = Array.from(randomGrid.querySelectorAll('img'));
+          const index = items.indexOf(img);
+          if (index === -1) return;
+          imageItems = items.map(function (image) {
+            return { src: image.src, alt: image.alt || "" };
+          });
+          showViewerImage(index);
+        });
+      }
     }
   </script>
 </body>

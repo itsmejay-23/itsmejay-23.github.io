@@ -407,6 +407,59 @@ body {
   display: flex;
 }
 
+.blog-modal-image-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.92);
+  cursor: zoom-out;
+}
+
+.blog-modal-image-viewer.is-active {
+  display: flex;
+}
+
+.blog-modal-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border: none;
+  background: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  font-size: 1.7rem;
+  cursor: pointer;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.blog-modal-arrow:hover {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.blog-modal-arrow-left {
+  left: 18px;
+}
+
+.blog-modal-arrow-right {
+  right: 18px;
+}
+
+.blog-modal-image-viewer img {
+  max-width: 92%;
+  max-height: 92%;
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+}
+
 .blog-modal-content {
   background: var(--midnight-surface);
   max-width: 900px;
