@@ -78,6 +78,13 @@
           <button type="button" class="blog-hero-label" aria-label="Fourth Week">Fourth Week</button>
         </div>
       </div>
+
+      <div class="blog-hero-card">
+        <div class="blog-hero-image-wrapper">
+          <img src="images/arjay/fifth_week/received_1376661337598605.webp" alt="Fifth week highlight">
+          <button type="button" class="blog-hero-label" aria-label="Fifth Week">Fifth Week</button>
+        </div>
+      </div>
     </aside>
 
     <!-- Vertical line separator (continuous) -->
@@ -217,6 +224,39 @@
           </p>
         </div>
       </div>
+
+      <div class="blog-week-block" id="week-fifth">
+        <h1 class="blog-title" style="margin-top: 50px;">Fifth Week - March 23-27, 2026</h1>
+
+        <div class="blog-main-row">
+          <p class="blog-paragraph">
+            This week focused on editing tasks, event preparation, and ongoing design work. A significant portion of the time was dedicated to editing the International Report, with continuous revisions carried out throughout the week, including work-from-home days. Assistance was also provided to foreign visitors, ensuring their needs were accommodated. Additional responsibilities included helping set up the conference room for law students. Work on drafting the infographic design also continued alongside the report editing tasks, contributing to the overall progress of both projects.
+          </p>
+
+          <div class="blog-gallery-layer">
+
+            <div class="blog-thumb layer1">
+              <img src="images/arjay/fifth_week/received_1643731869966893.webp" alt="Fifth week photo 1">
+            </div>
+          
+            <div class="blog-thumb layer2">
+              <img src="images/arjay/fifth_week/received_2430669260709647.webp" alt="Fifth week photo 2">
+            </div>
+          
+            <div class="blog-thumb layer3">
+              <img src="images/arjay/fifth_week/received_924578606946798.webp" alt="Fifth week photo 3">
+            </div>
+          
+            <button type="button"
+                    class="blog-thumb blog-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-fifth-week-modal">
+              <img src="images/arjay/fifth_week/received_1376661337598605 (1).webp" alt="More fifth week photos">
+            </button>       
+          </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -337,6 +377,30 @@
     </div>
   </div>
 
+  <!-- Modal overlay showing all fifth week images -->
+  <div class="blog-modal-overlay" id="blog-fifth-week-modal">
+    <div class="blog-modal-content">
+      <div class="blog-modal-header">
+        <div class="blog-modal-title">Fifth Week - Arjay's Full Gallery</div>
+        <button type="button" class="blog-modal-close" id="close-fifth-week-modal">&times;</button>
+      </div>
+      <div class="blog-modal-preview" id="blog-modal-preview-fifth" aria-hidden="true"></div>
+
+      <div class="blog-modal-grid">
+        <div class="blog-modal-grid-inner">
+          <img src="images/arjay/fifth_week/received_1376661337598605.webp" alt="Fifth week photo 1">
+          <img src="images/arjay/fifth_week/received_1376661337598605 (1).webp" alt="Fifth week photo 2">
+          <img src="images/arjay/fifth_week/received_1643731869966893.webp" alt="Fifth week photo 3">
+          <img src="images/arjay/fifth_week/received_1643731869966893 (1).webp" alt="Fifth week photo 4">
+          <img src="images/arjay/fifth_week/received_2430669260709647.webp" alt="Fifth week photo 5">
+          <img src="images/arjay/fifth_week/received_2430669260709647 (1).webp" alt="Fifth week photo 6">
+          <img src="images/arjay/fifth_week/received_924578606946798.webp" alt="Fifth week photo 7">
+          <img src="images/arjay/fifth_week/received_924578606946798 (1).webp" alt="Fifth week photo 8">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       function setupModal(openId, modalId, closeId, previewId) {
@@ -391,6 +455,7 @@
       setupModal('open-second-week-modal', 'blog-second-week-modal', 'close-second-week-modal', 'blog-modal-preview-second');
       setupModal('open-third-week-modal', 'blog-third-week-modal', 'close-third-week-modal', 'blog-modal-preview-third');
       setupModal('open-fourth-week-modal', 'blog-fourth-week-modal', 'close-fourth-week-modal', 'blog-modal-preview-fourth');
+      setupModal('open-fifth-week-modal', 'blog-fifth-week-modal', 'close-fifth-week-modal', 'blog-modal-preview-fifth');
 
       // Make hero highlight cards (image + label) clickable to scroll to the week,
       // without changing their vertical order
@@ -405,6 +470,7 @@
           else if (label === 'Second Week') targetId = 'week-second';
           else if (label === 'Third Week') targetId = 'week-third';
           else if (label === 'Fourth Week') targetId = 'week-fourth';
+          else if (label === 'Fifth Week') targetId = 'week-fifth';
 
           card.addEventListener('click', function (e) {
             e.preventDefault();
