@@ -85,6 +85,13 @@
           <div class="blog-hero-label">Fifth Week</div>
         </div>
       </div>
+
+      <div class="blog-hero-card">
+        <div class="blog-hero-image-wrapper">
+          <img src="images/ella/sixth_week/656811681_2586582881739194_333201763357097824_n.jpg" alt="Sixth week highlight">
+          <div class="blog-hero-label">Sixth Week</div>
+        </div>
+      </div>
     </aside>
 
     <!-- Vertical line separator -->
@@ -239,6 +246,34 @@
           </div>
         </div>
       </div>
+
+      <div class="blog-week-block blog-week-gallery-left" id="week-sixth">
+        <h1 class="blog-title" style="margin-top: 50px;">Sixth Week - March 30 - April 3, 2026</h1>
+
+        <div class="blog-main-row">
+          <div class="blog-gallery-layer">
+            <div class="blog-thumb layer1">
+              <img src="images/ella/sixth_week/656811681_2586582881739194_333201763357097824_n.jpg" alt="Sixth week photo 1">
+            </div>
+            <div class="blog-thumb layer2">
+              <img src="images/ella/sixth_week/657833938_1717531102535930_63981343847757615_n.png" alt="Sixth week photo 2">
+            </div>
+            <div class="blog-thumb layer3">
+              <img src="images/ella/sixth_week/658837540_980073754671929_7345577465846305219_n.jpg" alt="Sixth week photo 3">
+            </div>
+            <button type="button"
+                    class="blog-thumb blog-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-sixth-week-modal">
+              <img src="images/ella/sixth_week/662593692_26828528456732110_932533688169166573_n.jpg" alt="More sixth week photos">
+            </button>
+          </div>
+
+          <p class="blog-paragraph">
+            During the week of March 30 to April 3, 2026, I participated in a trial-and-error Zoom meeting for live streaming to ensure the setup and flow of the event were properly executed, while also receiving documents from Old CAL. On the following day, I assisted with technical tasks during the live stream and helped clean and organize the office after the activity. While working from home (WFH), I contacted ASEAN ERA participants through text messages to provide necessary updates and coordination. On April 2 and 3, I observed the scheduled holidays, with no assigned office tasks. Overall, the week involved a combination of technical support, administrative work, and communication tasks that contributed to the success of office activities.
+          </p>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -385,6 +420,33 @@
     </div>
   </div>
 
+  <!-- Modal overlay showing all sixth week images -->
+  <div class="blog-modal-overlay" id="blog-sixth-week-modal">
+    <div class="blog-modal-content">
+      <div class="blog-modal-header">
+        <div class="blog-modal-title">Sixth Week - Ella's Full Gallery</div>
+        <button type="button" class="blog-modal-close" id="close-sixth-week-modal">&times;</button>
+      </div>
+      <div class="blog-modal-preview" id="blog-modal-preview-sixth" aria-hidden="true"></div>
+
+      <div class="blog-modal-grid">
+        <div class="blog-modal-grid-inner">
+          <img src="images/ella/sixth_week/656811681_2586582881739194_333201763357097824_n.jpg" alt="Sixth week photo 1">
+          <img src="images/ella/sixth_week/657833938_1717531102535930_63981343847757615_n.png" alt="Sixth week photo 2">
+          <img src="images/ella/sixth_week/658837540_980073754671929_7345577465846305219_n.jpg" alt="Sixth week photo 3">
+          <img src="images/ella/sixth_week/662593692_26828528456732110_932533688169166573_n.jpg" alt="Sixth week photo 4">
+          <img src="images/ella/sixth_week/Screenshot 2026-03-30 110020.png" alt="Sixth week photo 5">
+          <img src="images/ella/sixth_week/Screenshot 2026-03-31 103437.png" alt="Sixth week photo 6">
+          <img src="images/ella/sixth_week/Screenshot 2026-03-31 103457.png" alt="Sixth week photo 7">
+          <img src="images/ella/sixth_week/Screenshot 2026-03-31 111152.png" alt="Sixth week photo 8">
+          <img src="images/ella/sixth_week/Screenshot 2026-03-31 111218.png" alt="Sixth week photo 9">
+          <img src="images/ella/sixth_week/Screenshot 2026-03-31 111236.png" alt="Sixth week photo 10">
+          <img src="images/ella/sixth_week/Screenshot 2026-03-31 111623.png" alt="Sixth week photo 11">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="blog-modal-image-viewer" id="blog-modal-image-viewer">
     <button type="button" class="blog-modal-arrow blog-modal-arrow-left" aria-label="Previous image">‹</button>
     <img src="" alt="Expanded photo">
@@ -481,6 +543,7 @@
       setupModal('open-third-week-modal', 'blog-third-week-modal', 'close-third-week-modal', 'blog-modal-preview-third');
       setupModal('open-fourth-week-modal', 'blog-fourth-week-modal', 'close-fourth-week-modal', 'blog-modal-preview-fourth');
       setupModal('open-fifth-week-modal', 'blog-fifth-week-modal', 'close-fifth-week-modal', 'blog-modal-preview-fifth');
+      setupModal('open-sixth-week-modal', 'blog-sixth-week-modal', 'close-sixth-week-modal', 'blog-modal-preview-sixth');
 
       // Make hero highlight cards (image + label) clickable to scroll to the week,
       // without changing their vertical order
@@ -496,6 +559,7 @@
           else if (label === 'Third Week') targetId = 'week-third';
           else if (label === 'Fourth Week') targetId = 'week-fourth';
           else if (label === 'Fifth Week') targetId = 'week-fifth';
+          else if (label === 'Sixth Week') targetId = 'week-sixth';
 
           card.addEventListener('click', function (e) {
             e.preventDefault();
