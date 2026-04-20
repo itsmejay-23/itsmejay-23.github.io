@@ -591,6 +591,11 @@ body {
   transform:translateY(-5px) scale(1.05);
 }
 
+/* Prevent week-six layered thumbs from overlapping week-seven heading */
+#week-sixth .blog-gallery-layer {
+  height: 235px;
+}
+
 /* Welcome page styles */
 .index-content {
   max-width: 1500px;
