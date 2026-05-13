@@ -120,6 +120,13 @@
           <button type="button" class="blog-hero-label" aria-label="Tenth Week">Tenth Week</button>
         </div>
       </div>
+
+      <div class="blog-hero-card">
+        <div class="blog-hero-image-wrapper">
+          <img src="images/arjay/eleventh_week/IMG_20260504_080349_353.jpg" alt="Eleventh week highlight">
+          <button type="button" class="blog-hero-label" aria-label="Eleventh Week">Eleventh Week</button>
+        </div>
+      </div>
     </aside>
 
     <!-- Vertical line separator (continuous) -->
@@ -445,6 +452,45 @@
           </p>
         </div>
       </div>
+
+      <div class="blog-week-block" id="week-eleventh">
+        <h1 class="blog-title" style="margin-top: 50px;">Eleventh Week - May 4 - 8, 2026</h1>
+
+        <div class="blog-main-row">
+          <p class="blog-paragraph">
+            This week focused on the continuous development and improvement of animation and infographic projects.
+            Animation editing was continued throughout the week, including making several updates and adjustments to
+            improve the overall output. The animation style was also changed and refined to achieve a more suitable and
+            visually appealing presentation. Assistance was also provided in the infographic project, which was first
+            presented to the Director of IRO for review and evaluation. After the presentation, the project underwent
+            revisions and improvements based on the feedback and suggestions given. Work on the animation project
+            continued consistently, while additional efforts were dedicated to the IRO video as part of the ongoing
+            multimedia and creative tasks.
+          </p>
+
+          <div class="blog-gallery-layer">
+            <div class="blog-thumb layer1">
+              <img src="images/arjay/eleventh_week/IMG_20260504_080349_353.jpg" alt="Eleventh week photo 1">
+            </div>
+
+            <div class="blog-thumb layer2">
+              <img src="images/arjay/eleventh_week/IMG_20260504_081344_848.jpg" alt="Eleventh week photo 2">
+            </div>
+
+            <div class="blog-thumb layer3">
+              <img src="images/arjay/eleventh_week/received_1328935245816532.jpeg" alt="Eleventh week photo 3">
+            </div>
+
+            <button type="button"
+                    class="blog-thumb blog-thumb-more layer4"
+                    data-label="VIEW MORE"
+                    id="open-eleventh-week-modal">
+              <img src="images/arjay/eleventh_week/Screenshot_20260504-153412.jpg" alt="More eleventh week photos">
+            </button>
+          </div>
+        </div>
+
+      </div>
     </section>
   </main>
 
@@ -726,6 +772,35 @@
     </div>
   </div>
 
+  <!-- Modal overlay showing all eleventh week images -->
+  <div class="blog-modal-overlay" id="blog-eleventh-week-modal">
+    <div class="blog-modal-content">
+      <div class="blog-modal-header">
+        <div class="blog-modal-title">Eleventh Week - Arjay's Full Gallery</div>
+        <button type="button" class="blog-modal-close" id="close-eleventh-week-modal">&times;</button>
+      </div>
+      <div class="blog-modal-preview" id="blog-modal-preview-eleventh" aria-hidden="true"></div>
+
+      <div class="blog-modal-grid">
+        <div class="blog-modal-grid-inner">
+          <img src="images/arjay/eleventh_week/IMG_20260504_080349_353.jpg" alt="Eleventh week photo 1">
+          <img src="images/arjay/eleventh_week/IMG_20260504_081344_848.jpg" alt="Eleventh week photo 2">
+          <img src="images/arjay/eleventh_week/received_1328935245816532.jpeg" alt="Eleventh week photo 3">
+          <img src="images/arjay/eleventh_week/Screenshot_20260504-153412.jpg" alt="Eleventh week screenshot 1">
+          <img src="images/arjay/eleventh_week/Screenshot_20260504-153425.jpg" alt="Eleventh week screenshot 2">
+          <img src="images/arjay/eleventh_week/received_1132446305726216.webp" alt="Eleventh week photo 4">
+          <img src="images/arjay/eleventh_week/received_1540750057626177.jpeg" alt="Eleventh week photo 5">
+          <img src="images/arjay/eleventh_week/received_1849423222394906.webp" alt="Eleventh week photo 6">
+          <img src="images/arjay/eleventh_week/received_2243778069784337.webp" alt="Eleventh week photo 7">
+          <img src="images/arjay/eleventh_week/20260508_095330.jpg" alt="Eleventh week photo 8">
+          <img src="images/arjay/eleventh_week/20260508_095339.jpg" alt="Eleventh week photo 9">
+          <video controls playsinline preload="metadata" src="images/arjay/eleventh_week/first_output_animation.mp4"></video>
+          <video controls playsinline preload="metadata" src="images/arjay/eleventh_week/revision_animation.mp4"></video>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="blog-modal-image-viewer" id="blog-modal-image-viewer">
     <button type="button" class="blog-modal-arrow blog-modal-arrow-left" aria-label="Previous image">‹</button>
     <img src="" alt="Expanded photo">
@@ -828,6 +903,7 @@
       setupModal('open-eighth-week-modal', 'blog-eighth-week-modal', 'close-eighth-week-modal', 'blog-modal-preview-eighth');
       setupModal('open-ninth-week-modal', 'blog-ninth-week-modal', 'close-ninth-week-modal', 'blog-modal-preview-ninth');
       setupModal('open-tenth-week-modal', 'blog-tenth-week-modal', 'close-tenth-week-modal', 'blog-modal-preview-tenth');
+      setupModal('open-eleventh-week-modal', 'blog-eleventh-week-modal', 'close-eleventh-week-modal', 'blog-modal-preview-eleventh');
 
       // Make hero highlight cards (image + label) clickable to scroll to the week,
       // without changing their vertical order
@@ -848,6 +924,7 @@
           else if (label === 'Eighth Week') targetId = 'week-eighth';
           else if (label === 'Ninth Week') targetId = 'week-ninth';
           else if (label === 'Tenth Week') targetId = 'week-tenth';
+          else if (label === 'Eleventh Week') targetId = 'week-eleventh';
 
           card.addEventListener('click', function (e) {
             e.preventDefault();
