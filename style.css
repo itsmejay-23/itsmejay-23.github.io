@@ -532,7 +532,7 @@ body {
 .blog-gallery-layer{
   position:relative;
   width:220px;
-  height:190px;
+  height:235px;
 }
 
 /* base image style */
@@ -589,11 +589,6 @@ body {
 
 .blog-gallery-layer .blog-thumb:hover{
   transform:translateY(-5px) scale(1.05);
-}
-
-/* Prevent week-six layered thumbs from overlapping week-seven heading */
-#week-sixth .blog-gallery-layer {
-  height: 235px;
 }
 
 /* Welcome page styles */
