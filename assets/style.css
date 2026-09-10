@@ -99,19 +99,19 @@ h1 { font-family: "Montserrat Bold", var(--sans); font-size: clamp(52px, 10vw, 1
 .scroll-cue b { color: var(--paper); font-size: 19px; font-weight: 400; }
 .hero-index { bottom: 33px; color: #a6a5a0; position: absolute; right: 4.5vw; z-index: 1; }
 
-.community { display: grid; grid-template-columns: 1fr 1fr; }
-.social-panel { align-items: center; display: flex; justify-content: space-between; min-height: 210px; padding: 38px 7vw; position: relative; transition: padding .25s ease; }
-.social-panel:hover { padding-left: calc(7vw + 9px); padding-right: calc(7vw - 9px); }
-.social-panel-light { background: var(--paper); color: var(--ink); }
-.social-panel-dark { background: var(--ink); color: var(--paper); border-top: 1px solid var(--line); }
+.community { display: grid; grid-template-columns: repeat(3, 1fr); }
+.social-panel { align-items: center; background: var(--ink); border-top: 1px solid var(--line); color: var(--paper); display: flex; justify-content: space-between; min-height: 210px; padding: 38px 7vw; position: relative; transition: background-color .2s ease, color .2s ease, padding .25s ease; }
+.social-panel:hover { background: var(--paper); color: var(--ink); padding-left: calc(7vw + 9px); padding-right: calc(7vw - 9px); }
 .social-details { align-items: center; display: flex; flex-wrap: wrap; gap: 14px; padding-right: 42px; }
 .social-icon { display: block; }
 .social-icon svg { fill: currentColor; height: 27px; stroke: none; width: 27px; }
+.social-icon img { display: block; height: 52px; margin: -12.5px; object-fit: contain; width: 52px; }
 .social-panel-dark .social-icon svg { fill: none; stroke: currentColor; stroke-width: 1.5; }
 .social-panel-dark .social-icon .icon-dot { fill: currentColor; stroke: none; }
 .social-name, .social-label { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; }
 .social-label { color: var(--muted); }
 .social-panel-light .social-label { color: #777671; }
+.social-panel:hover .social-label { color: var(--ink); }
 .social-panel strong { font-size: clamp(25px, 3vw, 40px); font-weight: 500; letter-spacing: -.05em; }
 .arrow { font-size: 25px; }
 .site-footer { color: #777671; display: flex; justify-content: space-between; padding: 22px 4.5vw; }
