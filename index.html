@@ -96,6 +96,52 @@
 					<span class="arrow" aria-hidden="true">↗</span>
 				</a>
 			</section>
+
+			<section class="sample-works" aria-labelledby="sample-works-title">
+				<div class="sample-works-heading">
+					<h2 id="sample-works-title"><span>S</span><span>A</span><span>M</span><span>P</span><span>L</span><span>E</span><span>W</span><span>O</span><span>R</span><span>K</span><span>S</span></h2>
+				</div>
+				<div class="sample-works-viewport">
+					<div class="sample-works-track">
+						<article class="sample-work">
+							<video src="assets/videos/callmejay-1.mp4" preload="metadata" aria-label="Sample work 1"></video>
+						</article>
+						<article class="sample-work">
+							<video src="assets/videos/callmejay-2.mp4" preload="metadata" aria-label="Sample work 2"></video>
+						</article>
+						<article class="sample-work">
+							<video src="assets/videos/callmejay-3.mp4" preload="metadata" aria-label="Sample work 3"></video>
+						</article>
+						<article class="sample-work">
+							<video src="assets/videos/callmejay-4.mp4" preload="metadata" aria-label="Sample work 4"></video>
+						</article>
+						<article class="sample-work">
+							<video src="assets/videos/callmejay-5.mp4" preload="metadata" aria-label="Sample work 5"></video>
+						</article>
+						<article class="sample-work">
+							<video src="assets/videos/callmejay-6.mp4" preload="metadata" aria-label="Sample work 6"></video>
+						</article>
+						<article class="sample-work" aria-hidden="true">
+							<video src="assets/videos/callmejay-1.mp4" preload="metadata"></video>
+						</article>
+						<article class="sample-work" aria-hidden="true">
+							<video src="assets/videos/callmejay-2.mp4" preload="metadata"></video>
+						</article>
+						<article class="sample-work" aria-hidden="true">
+							<video src="assets/videos/callmejay-3.mp4" preload="metadata"></video>
+						</article>
+						<article class="sample-work" aria-hidden="true">
+							<video src="assets/videos/callmejay-4.mp4" preload="metadata"></video>
+						</article>
+						<article class="sample-work" aria-hidden="true">
+							<video src="assets/videos/callmejay-5.mp4" preload="metadata"></video>
+						</article>
+						<article class="sample-work" aria-hidden="true">
+							<video src="assets/videos/callmejay-6.mp4" preload="metadata"></video>
+						</article>
+					</div>
+				</div>
+			</section>
 		</main>
 
 		<footer class="site-footer">
@@ -105,6 +151,8 @@
 		<script>
 			const exploreMenu = document.querySelector('.explore-menu');
 			const discoverButton = document.querySelector('.discover-button');
+			const sampleWorksTrack = document.querySelector('.sample-works-track');
+			const sampleWorkVideos = document.querySelectorAll('.sample-work video');
 
 			discoverButton.addEventListener('click', () => {
 				exploreMenu.open = true;
@@ -119,12 +167,60 @@
 
 			const galleryImages = document.querySelectorAll('.hero-gallery-image');
 			let activeImage = 0;
+			const setVideoPreviewFrame = (video) => {
+				if (Number.isFinite(video.duration) && video.duration > 0) {
+					video.currentTime = video.duration / 2;
+				}
+			};
 
 			setInterval(() => {
 				galleryImages[activeImage].classList.remove('is-active');
 				activeImage = (activeImage + 1) % galleryImages.length;
 				galleryImages[activeImage].classList.add('is-active');
 			}, 4500);
+
+			sampleWorkVideos.forEach((video) => {
+				const sampleWork = video.closest('.sample-work');
+				const playButton = document.createElement('button');
+				playButton.className = 'sample-work-play';
+				playButton.type = 'button';
+				playButton.setAttribute('aria-label', 'Play sample work');
+				playButton.innerHTML = '<img src="assets/icons/play-button.png" alt="">';
+				sampleWork.appendChild(playButton);
+				video.muted = true;
+				video.addEventListener('loadedmetadata', () => setVideoPreviewFrame(video));
+				sampleWork.addEventListener('mouseenter', () => {
+					sampleWorksTrack.classList.add('is-paused');
+					sampleWorkVideos.forEach((otherVideo) => {
+						if (otherVideo !== video) {
+							otherVideo.pause();
+							setVideoPreviewFrame(otherVideo);
+						}
+					});
+				});
+				playButton.addEventListener('click', () => {
+					sampleWorkVideos.forEach((otherVideo) => {
+						if (otherVideo !== video) {
+							otherVideo.pause();
+							otherVideo.muted = true;
+							setVideoPreviewFrame(otherVideo);
+							otherVideo.closest('.sample-work').classList.remove('is-playing');
+						}
+					});
+					video.muted = false;
+					video.currentTime = 0;
+					video.play();
+					sampleWork.classList.add('is-playing');
+					playButton.classList.add('is-playing');
+				});
+				sampleWork.addEventListener('mouseleave', () => {
+					sampleWorksTrack.classList.remove('is-paused');
+					video.pause();
+					setVideoPreviewFrame(video);
+					sampleWork.classList.remove('is-playing');
+					playButton.classList.remove('is-playing');
+				});
+			});
 
 			const spotifyPlayer = document.querySelector('.spotify-player');
 			document.getElementById('spotify-close').addEventListener('click', () => {
