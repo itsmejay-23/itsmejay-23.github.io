@@ -120,40 +120,83 @@
 				<div class="sample-works-viewport">
 					<div class="sample-works-track">
 						<article class="sample-work">
-							<video src="assets/videos/callmejay-1.mp4" preload="metadata" aria-label="Sample work 1"></video>
+							<video src="assets/videos/callmejay/callmejay-2.mp4" preload="metadata" aria-label="Sample work 1"></video>
 						</article>
 						<article class="sample-work">
-							<video src="assets/videos/callmejay-2.mp4" preload="metadata" aria-label="Sample work 2"></video>
+							<video src="assets/videos/callmejay/callmejay-3.mp4" preload="metadata" aria-label="Sample work 2"></video>
 						</article>
 						<article class="sample-work">
-							<video src="assets/videos/callmejay-3.mp4" preload="metadata" aria-label="Sample work 3"></video>
+							<video src="assets/videos/callmejay/callmejay-4.mp4" preload="metadata" aria-label="Sample work 3"></video>
 						</article>
 						<article class="sample-work">
-							<video src="assets/videos/callmejay-4.mp4" preload="metadata" aria-label="Sample work 4"></video>
+							<video src="assets/videos/callmejay/callmejay-5.mp4" preload="metadata" aria-label="Sample work 4"></video>
 						</article>
 						<article class="sample-work">
-							<video src="assets/videos/callmejay-5.mp4" preload="metadata" aria-label="Sample work 5"></video>
+							<video src="assets/videos/callmejay/callmejay-6.mp4" preload="metadata" aria-label="Sample work 5"></video>
 						</article>
 						<article class="sample-work">
-							<video src="assets/videos/callmejay-6.mp4" preload="metadata" aria-label="Sample work 6"></video>
+							<video src="assets/videos/callmejay/callmejay-2.mp4" preload="metadata" aria-label="Sample work 6"></video>
 						</article>
 						<article class="sample-work" aria-hidden="true">
-							<video src="assets/videos/callmejay-1.mp4" preload="metadata"></video>
+							<video src="assets/videos/callmejay/callmejay-3.mp4" preload="metadata"></video>
 						</article>
 						<article class="sample-work" aria-hidden="true">
-							<video src="assets/videos/callmejay-2.mp4" preload="metadata"></video>
+							<video src="assets/videos/callmejay/callmejay-4.mp4" preload="metadata"></video>
 						</article>
 						<article class="sample-work" aria-hidden="true">
-							<video src="assets/videos/callmejay-3.mp4" preload="metadata"></video>
+							<video src="assets/videos/callmejay/callmejay-5.mp4" preload="metadata"></video>
 						</article>
 						<article class="sample-work" aria-hidden="true">
-							<video src="assets/videos/callmejay-4.mp4" preload="metadata"></video>
+							<video src="assets/videos/callmejay/callmejay-6.mp4" preload="metadata"></video>
 						</article>
 						<article class="sample-work" aria-hidden="true">
-							<video src="assets/videos/callmejay-5.mp4" preload="metadata"></video>
+							<video src="assets/videos/callmejay/callmejay-2.mp4" preload="metadata"></video>
 						</article>
 						<article class="sample-work" aria-hidden="true">
-							<video src="assets/videos/callmejay-6.mp4" preload="metadata"></video>
+							<video src="assets/videos/callmejay/callmejay-3.mp4" preload="metadata"></video>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section class="sample-works sample-works-secondary" aria-label="Yoki videos">
+				<div class="sample-works-viewport">
+					<div class="sample-works-track sample-works-track-reverse">
+						<article class="sample-work">
+							<video src="assets/videos/yoki/yoki-0.mp4" preload="metadata" aria-label="Yoki sample work 1"></video>
+						</article>
+						<article class="sample-work">
+							<video src="assets/videos/yoki/yoki-1.mp4" preload="metadata" aria-label="Yoki sample work 2"></video>
+						</article>
+						<article class="sample-work">
+							<video src="assets/videos/yoki/yoki-2.mp4" preload="metadata" aria-label="Yoki sample work 3"></video>
+						</article>
+						<article class="sample-work">
+							<video src="assets/videos/yoki/yoki-3.mp4" preload="metadata" aria-label="Yoki sample work 4"></video>
+						</article>
+						<article class="sample-work">
+							<video src="assets/videos/yoki/yoki-4.mp4" preload="metadata" aria-label="Yoki sample work 5"></video>
+						</article>
+						<article class="sample-work">
+							<video src="assets/videos/yoki/yoki-5.mp4" preload="metadata" aria-label="Yoki sample work 6"></video>
+						</article>
+						<article class="sample-work" aria-hidden="true">
+							<video src="assets/videos/yoki/yoki-0.mp4" preload="metadata"></video>
+						</article>
+						<article class="sample-work" aria-hidden="true">
+							<video src="assets/videos/yoki/yoki-1.mp4" preload="metadata"></video>
+						</article>
+						<article class="sample-work" aria-hidden="true">
+							<video src="assets/videos/yoki/yoki-2.mp4" preload="metadata"></video>
+						</article>
+						<article class="sample-work" aria-hidden="true">
+							<video src="assets/videos/yoki/yoki-3.mp4" preload="metadata"></video>
+						</article>
+						<article class="sample-work" aria-hidden="true">
+							<video src="assets/videos/yoki/yoki-4.mp4" preload="metadata"></video>
+						</article>
+						<article class="sample-work" aria-hidden="true">
+							<video src="assets/videos/yoki/yoki-5.mp4" preload="metadata"></video>
 						</article>
 					</div>
 				</div>
@@ -167,7 +210,7 @@
 		<script>
 			const exploreMenu = document.querySelector('.explore-menu');
 			const discoverButton = document.querySelector('.discover-button');
-			const sampleWorksTrack = document.querySelector('.sample-works-track');
+			const sampleWorksTracks = document.querySelectorAll('.sample-works-track');
 			const sampleWorkVideos = document.querySelectorAll('.sample-work video');
 
 			discoverButton.addEventListener('click', () => {
@@ -206,7 +249,7 @@
 				video.muted = true;
 				video.addEventListener('loadedmetadata', () => setVideoPreviewFrame(video));
 				sampleWork.addEventListener('mouseenter', () => {
-					sampleWorksTrack.classList.add('is-paused');
+					sampleWorksTracks.forEach((track) => track.classList.add('is-paused'));
 					sampleWorkVideos.forEach((otherVideo) => {
 						if (otherVideo !== video) {
 							otherVideo.pause();
@@ -230,14 +273,13 @@
 					playButton.classList.add('is-playing');
 				});
 				sampleWork.addEventListener('mouseleave', () => {
-					sampleWorksTrack.classList.remove('is-paused');
+					sampleWorksTracks.forEach((track) => track.classList.remove('is-paused'));
 					video.pause();
 					setVideoPreviewFrame(video);
 					sampleWork.classList.remove('is-playing');
 					playButton.classList.remove('is-playing');
 				});
 			});
-
 			const spotifyPlayer = document.querySelector('.spotify-player');
 			document.getElementById('spotify-close').addEventListener('click', () => {
 				spotifyPlayer.classList.add('is-closed');

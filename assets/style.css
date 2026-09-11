@@ -115,6 +115,7 @@ h1 { font-family: "Montserrat Bold", var(--sans); font-size: clamp(52px, 10vw, 1
 .social-panel strong { font-size: clamp(25px, 3vw, 40px); font-weight: 500; letter-spacing: -.05em; }
 .arrow { font-size: 25px; }
 .sample-works { background: var(--ink); color: var(--paper); overflow: hidden; padding: 54px 4.5vw; }
+.sample-works-secondary { padding-top: 18px; }
 .sample-works-heading { margin-bottom: 28px; }
 .sample-works-title { display: grid; gap: .18em; margin: 0; width: 100%; }
 .sample-works-row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); width: 100%; }
@@ -133,6 +134,7 @@ h1 { font-family: "Montserrat Bold", var(--sans); font-size: clamp(52px, 10vw, 1
 .sample-works-row-bottom span:nth-child(5) { grid-column: 10 / span 2; }
 .sample-works-viewport { overflow: visible; }
 .sample-works-track { animation: sample-works-marquee 36s linear infinite; display: flex; width: max-content; }
+.sample-works-track-reverse { animation: sample-works-marquee-reverse 36s linear infinite; }
 .sample-works-track.is-paused { animation-play-state: paused; }
 .sample-work { flex: 0 0 clamp(190px, 25vw, 340px); min-width: 0; padding: 0 8px; position: relative; }
 .sample-work video { aspect-ratio: 16 / 9; background: var(--ink); display: block; filter: grayscale(1); height: auto; object-fit: cover; transition: filter .35s ease; width: 100%; }
@@ -145,6 +147,7 @@ h1 { font-family: "Montserrat Bold", var(--sans); font-size: clamp(52px, 10vw, 1
 .sample-work-play:hover, .sample-work-play:focus-visible { color: var(--paper); outline: none; transform: translate(-50%, -50%) scale(1.1); }
 .sample-work:hover .sample-work-play.is-playing { opacity: 0; pointer-events: none; }
 @keyframes sample-works-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes sample-works-marquee-reverse { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 .site-footer { color: #777671; display: flex; justify-content: space-between; padding: 22px 4.5vw; }
 
 @media (max-width: 620px) {
