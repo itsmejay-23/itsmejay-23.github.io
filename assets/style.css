@@ -114,7 +114,7 @@ h1 { font-family: "Montserrat Bold", var(--sans); font-size: clamp(52px, 10vw, 1
 .social-panel:hover .social-label { color: var(--ink); }
 .social-panel strong { font-size: clamp(25px, 3vw, 40px); font-weight: 500; letter-spacing: -.05em; }
 .arrow { font-size: 25px; }
-.sample-works { background: var(--ink); color: var(--paper); overflow: hidden; padding: 54px 4.5vw; }
+.sample-works { background: var(--ink); color: var(--paper); overflow: hidden; padding: 54px 4.5vw 12px; }
 .sample-works-secondary { padding-top: 18px; }
 .sample-works-heading { background: var(--ink); color: var(--paper); margin-bottom: 0; padding: 54px 4.5vw 28px; }
 .sample-works-title { margin: 0; width: 100%; }
