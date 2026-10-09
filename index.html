@@ -15,6 +15,27 @@
 	<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+	<div class="support-card-overlay" id="support-card-overlay" hidden>
+		<section class="support-card" role="dialog" aria-modal="true" aria-label="Support Yoki">
+			<button class="support-card-close" type="button" aria-label="Close support card"><span aria-hidden="true"></span></button>
+			<a class="support-card-cup" href="https://buymeacoffee.com/yowky" target="_blank" rel="noopener noreferrer" aria-label="Buy Yoki a coffee">
+				<img src="assets/buymeacoffee/images/cup.png" alt="">
+			</a>
+			<p class="support-card-eyebrow">SUPPORT MY CONTENT</p>
+			<p class="support-card-copy">Every coffee helps!</p>
+			<div class="support-sticker-stage" aria-label="Animated stickers">
+				<video class="support-sticker is-active" src="assets/buymeacoffee/vid%20stickers/cat.mp4" playsinline preload="auto"></video>
+				<video class="support-sticker" src="assets/buymeacoffee/vid%20stickers/catbubble.mp4" playsinline preload="auto"></video>
+			</div>
+			<button class="support-sound-button" type="button" aria-label="Mute sound" title="Mute sound" aria-pressed="true">
+				<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+					<path d="M11 5 6 9H2v6h4l5 4z"></path>
+					<path class="support-sound-waves" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"></path>
+					<path class="support-sound-muted" d="m16 9 5 6m0-6-5 6"></path>
+				</svg>
+			</button>
+		</section>
+	</div>
 	<div class="site-shell">
 		<header class="site-header">
 			<a class="brand" href="index.html" aria-label="YOKI.404 home">
@@ -393,15 +414,89 @@
 					playButton.classList.remove('is-playing');
 				});
 			});
+			const supportCardOverlay = document.getElementById('support-card-overlay');
+			const supportCardClose = supportCardOverlay.querySelector('.support-card-close');
+			const supportSoundButton = supportCardOverlay.querySelector('.support-sound-button');
+			const supportStickers = [...supportCardOverlay.querySelectorAll('.support-sticker')];
+			let supportAudioEnabled = true;
+
+			const updateSupportSoundButton = () => {
+				const label = supportAudioEnabled ? 'Mute sound' : 'Turn sound on';
+				supportSoundButton.classList.toggle('is-muted', !supportAudioEnabled);
+				supportSoundButton.setAttribute('aria-label', label);
+				supportSoundButton.title = label;
+				supportSoundButton.setAttribute('aria-pressed', String(supportAudioEnabled));
+			};
+			updateSupportSoundButton();
+
+			const playSupportSticker = (index) => {
+				supportStickers.forEach((video, videoIndex) => {
+					video.classList.toggle('is-active', videoIndex === index);
+					if (videoIndex !== index) video.pause();
+				});
+				const video = supportStickers[index];
+				video.currentTime = 0;
+				video.volume = 1;
+				video.muted = !supportAudioEnabled;
+				video.play().then(updateSupportSoundButton).catch(() => {
+					if (!supportAudioEnabled) return;
+					if (video.error || !video.paused) return;
+					supportAudioEnabled = false;
+					video.muted = true;
+					updateSupportSoundButton();
+					video.play().catch(() => {});
+				});
+			};
+
+			const closeSupportCard = () => {
+				supportCardOverlay.hidden = true;
+				document.body.classList.remove('support-card-visible');
+				supportStickers.forEach((video) => video.pause());
+			};
+
+			supportStickers.forEach((video, index) => {
+				video.addEventListener('ended', () => playSupportSticker((index + 1) % supportStickers.length));
+			});
+			supportSoundButton.addEventListener('click', () => {
+				supportAudioEnabled = !supportAudioEnabled;
+				const activeVideo = supportStickers.find((video) => video.classList.contains('is-active'));
+				if (activeVideo) {
+					activeVideo.muted = !supportAudioEnabled;
+					if (supportAudioEnabled) {
+						activeVideo.play().catch(() => {
+							if (activeVideo.error || !activeVideo.paused) return;
+							supportAudioEnabled = false;
+							activeVideo.muted = true;
+							updateSupportSoundButton();
+						});
+					}
+				}
+				updateSupportSoundButton();
+			});
+			supportCardClose.addEventListener('click', closeSupportCard);
+			supportCardOverlay.addEventListener('click', (event) => {
+				if (event.target === supportCardOverlay) closeSupportCard();
+			});
+			document.addEventListener('keydown', (event) => {
+				if (event.key === 'Escape' && !supportCardOverlay.hidden) closeSupportCard();
+			});
+
+			supportCardOverlay.hidden = false;
+			document.body.classList.add('support-card-visible');
+			supportCardClose.focus();
+			playSupportSticker(0);
+
 			const spotifyPlayer = document.querySelector('.spotify-player');
-			document.getElementById('spotify-close').addEventListener('click', () => {
-				spotifyPlayer.classList.add('is-closed');
-				document.getElementById('spotify-open').focus();
-			});
-			document.getElementById('spotify-open').addEventListener('click', () => {
-				spotifyPlayer.classList.remove('is-closed');
-				document.getElementById('spotify-close').focus();
-			});
+			if (spotifyPlayer) {
+				document.getElementById('spotify-close').addEventListener('click', () => {
+					spotifyPlayer.classList.add('is-closed');
+					document.getElementById('spotify-open').focus();
+				});
+				document.getElementById('spotify-open').addEventListener('click', () => {
+					spotifyPlayer.classList.remove('is-closed');
+					document.getElementById('spotify-close').focus();
+				});
+			}
 
 		</script>
 </body>
